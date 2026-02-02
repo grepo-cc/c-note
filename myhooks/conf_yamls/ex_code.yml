@@ -1,0 +1,34 @@
+
+theme:
+  features:
+############code
+    - content.code.copy
+    - content.code.select ## 内测功能
+    - content.code.annotate 
+############code
+
+markdown_extensions:
+
+ 
+
+
+
+
+############code
+  - pymdownx.highlight:
+      use_pygments: true
+
+      auto_title: true
+      linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      linenums_style: pymdownx-inline
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+
+  ############snippets 
+  - pymdownx.snippets:
+      base_path: ["./"]
+      url_download: true
+      dedent_subsections: False

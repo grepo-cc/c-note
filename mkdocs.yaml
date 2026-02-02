@@ -1,0 +1,8 @@
+# INHERIT: 
+# - conf_yamls/code.yml
+# - conf_yamls/base.yml
+site_name: kk
+hooks:
+- myhooks/my_hooks.py
+ 
+ 

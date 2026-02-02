@@ -1,0 +1,16 @@
+
+markdown_extensions:
+
+ 
+
+  ############
+
+# --8<-- [start:Annotations]
+  - attr_list #code.select
+  - md_in_html
+  - pymdownx.superfences
+# --8<-- [end:Annotations]
+
+theme:
+  icon:
+    annotation: material/record-circle

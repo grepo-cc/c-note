@@ -1,0 +1,129 @@
+##@ 站点的标题
+site_name: '云笔记 my_mkdocs'
+##@ 点击图标的链接
+site_url: http://127.0.0.1
+
+
+
+# edit_uri_template: '-/sse/master/docs%2F{path!q}'
+copyright: Copyright &copy; 2016 - 2030
+
+hooks:
+  - myhooks/my_hooks.py
+
+#--@-- [start:]
+theme: 
+  name: material
+  language: zh
+
+##@ icon
+  icon:
+
+    # menu: material/pencil 
+    # alternate: material/pencil 
+    # search: material/pencil 
+    # share: material/pencil 
+    # close: material/pencil 
+    # top: material/pencil 
+    # edit: material/pencil 
+    # view: material/pencil 
+    # repo: material/pencil
+    # previous: material/pencil
+    # next: material/pencil
+   
+   ## admonition  tag
+# material/library
+# material/library-outline
+# material/library-shelves
+    logo: material/library-shelves
+
+    
+# theme:
+  features:
+    - navigation.instant.preview
+##@ watch
+watch:
+  - myhooks/conf_yamls/theme_palette.yml
+  - myhooks/conf_yamls/base.yml
+  - myhooks/conf_yamls/nav.yml
+# - auto.yml
+# - mkdocs.yml
+
+#--@-- [end:]
+extra_javascript:
+
+  #- https://cdn.staticfile.net/jquery/1.10.2/jquery.min.js
+  - https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js
+  - javascripts/imagelink.js
+  - components/img_click.js
+  # - http://192.168.120.157:15780/myftppicgo/mksvg.php?h=iframe-res.js&d=jsreps
+
+
+  # - http://192.168.120.103:18003/root/mystatic/-/raw/main/h5/js/xlsx.full.min-0.20.1.js
+
+
+extra_css:
+
+  - stylesheets/extra.css
+  - stylesheets/Annotations.css
+  - stylesheets/tab.css
+  - components/img_click.css
+  
+  # - http://192.168.120.157:15780/myftppicgo/mkscodes&d=cssx 
+   
+# --8<-- [start:mkdocs_pre_css]
+  # - stylesheets/mk_pre.css
+  #- http://192.168.120.160:30001/mygitic?d=h5/assets/mkdocs/mk_pre.css
+# --8<-- [end:mkdocs_pre_css]
+ 
+validation:
+  omitted_files: warn
+  absolute_links: warn  # Or 'relative_to_docs' - new in MkDocs 1.6
+  unrecognized_links: warn
+  anchors: warn  # New in MkDocs 1.6
+  
+extra:
+  customer:
+    name: Your name here
+    web: www.example.com
+    salt: salt.example.com
+  mystatic: http://192.168.120.157:15720/
+  homepage: https://example.com
+ 
+ 
+##@ versioning
+# extra:
+  # version:
+  #   provider: mike
+
+
+
+# extra:
+  # generator: false
+
+plugins:
+ 
+ 
+  - macros
+
+
+# --8<-- [start:autolinks] 
+
+  # - autolink_references:
+        # autolinks:
+            # - reference_prefix: AF-
+              # target_url: /assets/images/<num>.jpg
+            # - reference_prefix: PROJ-
+              # target_url: https://jiracloud.com/PROJ-<num>
+# --8<-- [end:rss] 
+
+# --8<-- [start:autolinks] 
+  # - rss:
+  #     match_path: blog/posts/.* 
+  #     date_from_meta:
+  #       as_creation: date
+  #     categories:
+  #       - categories
+  #       - tags 
+# --8<-- [end:rss] 
+

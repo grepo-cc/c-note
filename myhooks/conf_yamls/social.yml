@@ -1,0 +1,19 @@
+#--@-- [start:]
+extra:
+##@ 底部图标链接
+  social:
+    - icon: fontawesome/brands/gitlab
+      link: http://192.168.120.157:30010/
+      name: gitlab
+# plugins:
+#   - social:
+#       cards_layout_options:
+#         font_family: Noto Sans SC
+  ##@ social 无法使用
+  # File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 677, in send
+
+  # raise ConnectionError(e, request=request)
+
+  # requests.exceptions.ConnectionError: HTTPSConnectionPool(host='fonts.google.com', port=443): Max retries exceeded with url: /download/list?family=Robotoimages/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fe69f907fa0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+#--@-- [end:]

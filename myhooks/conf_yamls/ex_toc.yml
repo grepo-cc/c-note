@@ -1,0 +1,10 @@
+markdown_extensions:
+
+# --8<-- [start:toc]
+# markdown_extensions:
+  - toc:
+      # toc_depth: 0
+      permalink: "#"
+      baselevel: 2
+      separator: "_"
+# --8<-- [end:toc]

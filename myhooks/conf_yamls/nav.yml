@@ -1,0 +1,60 @@
+
+# nav:
+#   - Home: index.md
+#   # - About: about.md
+#   - blog
+#   #   - ./index.md
+#   #   - blog/index.md
+
+# --8<-- [start:navigation]
+theme:
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+
+    ##@ When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents.
+    - navigation.tracking
+    ##@ 顶部导航栏
+    - navigation.tabs
+    ##@ 顶部导航栏固定，和上一起使用
+    # - navigation.tabs.sticky
+
+    ##@ 底部导航栏
+    - navigation.footer
+
+    ##@ 左侧导航按文件夹划分
+    - navigation.sections 
+
+##@
+# ---
+# hide:
+# - navigation
+# - toc
+# ---
+
+ 
+ 
+
+    ##@ 左侧导航栏文件内的标题是否可以展开
+    # - navigation.expand
+
+    - navigation.path #面包屑 内测，无法使用
+
+    ##@ 导航修剪
+    ##@ only the visible navigation items are included in the rendered HTML, reducing the size of the built site by 33% or more
+    - navigation.prune #
+
+    ##@ 每个文件夹内的index文件是否单独显示
+    - navigation.indexes #文件夹首页文件
+    ##@ 目录与导航合并
+    # - toc.integrate 
+    - toc.follow      #toc跟随
+    - navigation.top #返回顶部按钮
+# --8<-- [end:navigation]
+
+# --8<-- [start:hideheader]
+# When autohiding is enabled, the header is automatically hidden when the user scrolls past a certain threshold, leaving more space for content. Add the following lines to mkdocs.yml:
+# theme:
+  # features:
+    - header.autohide
+# --8<-- [end:hideheader]

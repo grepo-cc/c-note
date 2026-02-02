@@ -1,0 +1,17 @@
+theme:
+  icon:
+    tag:
+      mkdocs: fontawesome/brands/html5
+      html: fontawesome/brands/html5
+      js: fontawesome/brands/js
+      css:  fontawesome/brands/css3
+extra:
+  tags:
+    mkdocs: mkdocs
+    HTML5: html
+    JavaScript: js
+    CSS: css
+plugins:
+  - tags:
+      tags_file: tags.md  
+  

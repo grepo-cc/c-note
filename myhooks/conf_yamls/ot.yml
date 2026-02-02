@@ -1,0 +1,42 @@
+theme:
+  features:
+
+# --8<-- [start:Mark_as_read]
+# theme:
+  # features:
+    - announce.dismiss
+# --8<-- [end:Mark_as_read]
+
+markdown_extensions:
+
+ 
+############snippets 
+  - pymdownx.snippets:
+      base_path: ["./"]
+      url_download: true
+      dedent_subsections: False
+############snippets     
+  - pymdownx.arithmatex:
+      generic: true
+
+############footnotes
+  - footnotes
+############footnotes
+
+############- def_list
+  - def_list
+############- def_list
+
+# markdown_extensions:
+  - pymdownx.betterem
+# markdown_extensions:
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+############- pymdownx.pathconverter
+#  - pymdownx.pathconverter
+#      base_path: "https://www.jquery-az.com/html/test/demo.php?ex=151.0_5"
+############- pymdownx.pathconverter
+# markdown_extensions:
+  - pymdownx.critic:
+      mode: view

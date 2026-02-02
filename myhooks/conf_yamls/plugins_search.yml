@@ -1,0 +1,19 @@
+plugins:
+  - search
+ 
+  # - table-reader
+  # - privacy:
+  #     cache_dir: my/custom/dir#
+ 
+
+theme:
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+ 
+# ---
+# search:
+#   boost: 2 
+#   exclude: true
+# ---

@@ -1,0 +1,20 @@
+# --8<-- [start:repository]
+repo_url: 'http://192.168.120.157:30020/'
+repo_name: gitlab/mkdocs-material
+edit_uri: edit/main/docs/
+theme:
+  features:
+    - content.action.edit
+    - content.action.view
+  icon:
+    edit: material/pencil 
+    view: material/eye
+    repo: fontawesome/brands/git-alt
+# --8<-- [end:repository]
+
+# plugins:
+  # - git-revision-date-localized:
+  #     enable_creation_date: true
+  #     # enabled: !ENV [CI, false]
+  #     type: date
+  #     fallback_to_build_date: true

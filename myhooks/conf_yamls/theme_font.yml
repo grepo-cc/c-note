@@ -1,0 +1,10 @@
+# --8<-- [start:font]  
+theme:
+  font:
+    text: Robotoimages/
+    code: Roboto Mono
+# --8<-- [end:font]  
+
+  # logo: assets/images/favicon.png
+
+  # favicon: assets/images/favicon.png

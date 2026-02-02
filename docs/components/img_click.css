@@ -1,0 +1,32 @@
+
+img {
+    cursor: pointer;
+    height: calc(10vh) !important;
+    /* margin: 0 0 0 0 !important; */
+  }
+ 
+
+#bigimg{
+    z-index: 9999  !important;
+    width: calc(100vw)  !important;
+    /* height: auto; */
+    height: calc(100vh) !important;
+    position: fixed;
+    background: rgba(0,0,0,.3);
+    top: 0;
+    display: none;
+}
+
+#bigimg img{
+    width: calc(80vw) !important;
+    height: auto !important;
+    
+    margin:auto;
+    position: fixed;
+    left:calc(5vw);
+    /* right:calc(10vh); */
+    top: calc(10vh);
+    cursor: pointer;
+}
+
+ 
