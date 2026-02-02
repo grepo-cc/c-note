@@ -1,0 +1,23 @@
+pages:
+  stage: deploy
+  image: python:3.11-slim
+  before_script:
+    - python --version
+    - pip --version
+    - pip install --upgrade pip
+  script:
+    - pip install -r requirements.txt  # 使用依赖文件安装
+    - mkdocs build --strict --site-dir public  # 严格模式检测错误
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - ~/.cache/pip
+      - .cache/mkdocs
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 day  #  artifacts保留1天
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'  # 仅监控main分支
+      when: always
+    - when: never
