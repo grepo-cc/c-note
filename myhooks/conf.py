@@ -70,8 +70,10 @@ class ConfAuto(ConfInit):
             outfile =  'mkdocs.yml'
 
         # 打开文件进行覆盖写
+        '''
         with open(refresh ,'w') as f:
-            #f.write(outfile) # 写入新的内容
+            f.write(outfile) # 写入新的内容
+        '''
         # exit()
         # outfile =  'mkdocs.yml'
         output_file = self.doc_root + outfile
