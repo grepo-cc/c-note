@@ -18,9 +18,9 @@ class LinkerLocal(Linker):
         self.log = logging.getLogger(f"mkdocs.plugins.{__name__}")
         self.types = ["jpg","svg","png"]
         self.markdown = markdown
-        self.git_static = "http://192.168.120.160:30001/mygitic?d="
-        self.git_static_blob = "http://192.168.120.157:30001/mygitib?d="
-        self.hfilelinker =  "http://192.168.120.157:30001/hfile/"
+        self.git_static = "http://code160:30001/mygitic?d="
+        self.git_static_blob = "http://cl1157:30001/mygitib?d="
+        self.hfilelinker =  "http://cl1157:30001/hfile/"
     
 
 
@@ -76,7 +76,7 @@ class LinkerLocal(Linker):
         ##@ 网络工程文件路径
         #--@-- [start:]
 
-        static_url_157 = "http://192.168.120.157:15780/myftppicgo/mksvg.php"
+        static_url_157 = "http://cl1157:15780/myftppicgo/mksvg.php"
         static_net_url = static_url_157 + "?d=网络工程&h="
 
         stri = '@net/'

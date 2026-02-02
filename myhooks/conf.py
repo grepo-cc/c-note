@@ -59,9 +59,9 @@ class ConfAuto(ConfInit):
              ]
         refresh = self.conf_path + 'refresh.yml'
      
-     #@ GITHUB action 无法通过，暂时注释
+     #@ GITHUB action 
      #^ PermissionError: [Errno 13] Permission denied: '/root/mysite/myhooks/conf_yamls/refresh.yml
-        '''
+ 
         # 打开文件并读取内容
         ## 使用保存两次来触发修改
         with open(refresh, 'r', encoding='utf-8') as file:
@@ -76,10 +76,9 @@ class ConfAuto(ConfInit):
       
         with open(refresh ,'w') as f:
             f.write(outfile) # 写入新的内容
-        '''
+  
         # exit()
-        #@ GITHUB action 无法通过，打开注释
-        outfile =  'mkdocs.yml'
+        # outfile =  'mkdocs.yml'
         output_file = self.doc_root + outfile
         self.merge_yaml_files(files_to_merge, output_file)
 

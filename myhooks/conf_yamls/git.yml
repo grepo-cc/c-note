@@ -1,5 +1,5 @@
 # --8<-- [start:repository]
-repo_url: 'http://192.168.120.157:30020/'
+repo_url: 'http://cl1157:30020/'
 repo_name: gitlab/mkdocs-material
 edit_uri: edit/main/docs/
 theme:

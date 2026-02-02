@@ -3,7 +3,7 @@ extra:
 ##@ 底部图标链接
   social:
     - icon: fontawesome/brands/gitlab
-      link: http://192.168.120.157:30010/
+      link: http://cl1157:30010/
       name: gitlab
 # plugins:
 #   - social:

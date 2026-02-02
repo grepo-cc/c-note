@@ -68,12 +68,12 @@ def on_page_markdown(markdown,page,config, **kwargs):
 	# for m in re.finditer(r'(\"@jsreps\/)([\s\S]*?)(\")', markdown): 
 	
 	#	log.warning("jsreps======================" + m[2])
-	# static_url_157 = "http://192.168.120.157:15780/myftppicgo/mksvg.php"
+	# static_url_157 = "http://cl1157:15780/myftppicgo/mksvg.php"
 	# static_net_url = static_url_157 + "?d=网络工程&h="
 	# static_js_url  = static_url_157 + "?d=jsreps&h="
 	# static_cssx_url  = static_url_157 + "?d=cssx&h="
 	# static_bash_url  = static_url_157 + "?d=bash_in_app&h="
-	# static_url_160 = "http://192.168.120.160:16080"
+	# static_url_160 = "http://code160:16080"
 	# markdown = markdown.replace("\"@jsreps:", "\""+static_js_url)
 	# markdown = markdown.replace("\"@cssx:", "\""+static_cssx_url)
 	# markdown = markdown.replace("\"@bash:", "\""+static_bash_url)

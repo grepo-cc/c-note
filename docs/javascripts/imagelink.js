@@ -18,7 +18,7 @@
 // } 
 document$.subscribe(({ body }) => { 
     var vase_url = location.hostname + ":" + location.port;
-    var mksvg = "192.168.120.157:15780/myftppicgo/mksvg.php?h=";
+    var mksvg = "cl1157:15780/myftppicgo/mksvg.php?h=";
     var extl = ["jpg", "svg", "png"];
 
     var a_ist = document.querySelectorAll("a.go-gitic");

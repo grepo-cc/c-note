@@ -56,10 +56,9 @@ extra_javascript:
   - https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js
   - javascripts/imagelink.js
   - components/img_click.js
-  # - http://192.168.120.157:15780/myftppicgo/mksvg.php?h=iframe-res.js&d=jsreps
+  # - http://cl1157:15780/myftppicgo/mksvg.php?h=iframe-res.js&d=jsreps
 
 
-  # - http://192.168.120.103:18003/root/mystatic/-/raw/main/h5/js/xlsx.full.min-0.20.1.js
 
 
 extra_css:
@@ -69,11 +68,11 @@ extra_css:
   - stylesheets/tab.css
   - components/img_click.css
   
-  # - http://192.168.120.157:15780/myftppicgo/mkscodes&d=cssx 
+  # - http://cl1157:15780/myftppicgo/mkscodes&d=cssx 
    
 # --8<-- [start:mkdocs_pre_css]
   # - stylesheets/mk_pre.css
-  #- http://192.168.120.160:30001/mygitic?d=h5/assets/mkdocs/mk_pre.css
+  #- http://code160:30001/mygitic?d=h5/assets/mkdocs/mk_pre.css
 # --8<-- [end:mkdocs_pre_css]
  
 validation:
@@ -87,7 +86,7 @@ extra:
     name: Your name here
     web: www.example.com
     salt: salt.example.com
-  mystatic: http://192.168.120.157:15720/
+  mystatic: http://cl1157:15720/
   homepage: https://example.com
  
  

@@ -5,7 +5,7 @@ extra:
     salt: salt.example.com
     web: www.example.com
   homepage: https://example.com
-  mystatic: http://192.168.120.157:15720/
+  mystatic: http://cl1157:15720/
   tags:
     CSS: css
     HTML5: html
@@ -23,7 +23,7 @@ hooks:
 - myhooks/my_hooks.py
 plugins:
 - search
-repo_url: http://192.168.120.157:30020/
+repo_url: http://cl1157:30020/
 site_name: note 1 my_mkdocs
 site_url: http://127.0.0.1
 theme:

@@ -1,6 +1,6 @@
 ??? "目录结构"
     ```shell
-    #--8<-- "http://192.168.120.157:30020/root/mymkdocs/-/raw/local/README.md"
+    #--8<-- "http://cl1157:30020/root/mymkdocs/-/raw/local/README.md"
     ```
 
 ??? "目录结构"

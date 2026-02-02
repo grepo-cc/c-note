@@ -6,10 +6,10 @@ extra:
     salt: salt.example.com
     web: www.example.com
   homepage: https://example.com
-  mystatic: http://192.168.120.157:15720/
+  mystatic: http://cl1157:15720/
   social:
   - icon: fontawesome/brands/gitlab
-    link: http://192.168.120.157:30010/
+    link: http://cl1157:30010/
     name: gitlab
   tags:
     CSS: css
@@ -86,7 +86,7 @@ plugins:
 - meta
 - macros
 repo_name: gitlab/mkdocs-material
-repo_url: http://192.168.120.157:30020/
+repo_url: http://cl1157:30020/
 site_name: "\u4E91\u7B14\u8BB0 my_mkdocs"
 site_url: http://127.0.0.1
 theme:

@@ -18,7 +18,7 @@ class Env:
     ##@ 判断环境是服务器版还是客户端版
     # --@-- [start:]
     def giticheck(self):
-        file_url_blbo = "192.168.120.157" 
+        file_url_blbo = "cl1157" 
         try:
             response = requests.get(file_url_blbo,timeout=1)
             if response.status_code == 200:
