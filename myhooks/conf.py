@@ -59,6 +59,9 @@ class ConfAuto(ConfInit):
              ]
         refresh = self.conf_path + 'refresh.yml'
      
+     #@ GITHUB action 无法通过，暂时注释
+     #^ PermissionError: [Errno 13] Permission denied: '/root/mysite/myhooks/conf_yamls/refresh.yml
+       '''
         # 打开文件并读取内容
         ## 使用保存两次来触发修改
         with open(refresh, 'r', encoding='utf-8') as file:
@@ -70,7 +73,7 @@ class ConfAuto(ConfInit):
             outfile =  'mkdocs.yml'
 
         # 打开文件进行覆盖写
-        '''
+      
         with open(refresh ,'w') as f:
             f.write(outfile) # 写入新的内容
         '''
