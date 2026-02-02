@@ -78,7 +78,8 @@ class ConfAuto(ConfInit):
             f.write(outfile) # 写入新的内容
         '''
         # exit()
-        # outfile =  'mkdocs.yml'
+        #@ GITHUB action 无法通过，打开注释
+        outfile =  'mkdocs.yml'
         output_file = self.doc_root + outfile
         self.merge_yaml_files(files_to_merge, output_file)
 
