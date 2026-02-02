@@ -17,8 +17,14 @@ class ConfAuto(ConfInit):
         self.log = logging.getLogger(f"mkdocs.plugins.{__name__}")
         # self.mkdocs = mkdocs
         self.config = config
-        self.conf_path = "/root/mysite/myhooks/conf_yamls/"
+		
+		#@ 根目录修改
+        '''
+		self.conf_path = "/root/mysite/myhooks/conf_yamls/"
         self.doc_root = "/root/mysite/"
+        '''
+		self.conf_path = "./myhooks/conf_yamls/"
+        self.doc_root = "./"
         # pass
 
     def autoconf(self,config):
