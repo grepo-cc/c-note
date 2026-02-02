@@ -23,6 +23,7 @@ class ConfAuto(ConfInit):
 		self.conf_path = "/root/mysite/myhooks/conf_yamls/"
         self.doc_root = "/root/mysite/"
         '''
+		
 		self.conf_path = "./myhooks/conf_yamls/"
         self.doc_root = "./"
         # pass
