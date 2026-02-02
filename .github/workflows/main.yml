@@ -26,4 +26,18 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material 
+
+      #@ 自定义需要安装的依赖
+      - run: pip install pymdown-extensions
+      - run: pip install mkdocs
+      - run: pip install mkdocs-material
+      - run: pip install "mkdocs-material[imaging]"
+      - run: pip install mkdocs-minify-plugin
+      - run: pip install mkdocs-macros-plugin
+      - run: pip install mkdocs-rtd-dropdown
+      - run: pip install mkdocs-git-revision-date-plugin
+      - run: pip install mkdocs-git-revision-date-localized-plugin
+      - run: pip install mkdocs-table-reader-plugin
+      - run: pip install openpyxl 
+
       - run: mkdocs gh-deploy --force
