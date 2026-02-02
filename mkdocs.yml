@@ -26,8 +26,8 @@ extra_javascript:
 - https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js
 - javascripts/imagelink.js
 - components/img_click.js
-hooks:
-- myhooks/my_hooks.py
+# hooks:
+# - myhooks/my_hooks.py
 markdown_extensions:
 - abbr
 - attr_list
