@@ -164,7 +164,7 @@ class LinkerLocal(Linker):
                     else:
                         self.giticfalsechange(stri,file_url_blbo,m,n)
                     ##@ 判断环境是服务器版还是客户端版
-                    ''''
+                    '''
                     file_url_blbo = 
                     if(giticheck_state):
                         try:
@@ -177,9 +177,7 @@ class LinkerLocal(Linker):
                             print("~~~~~~~~Error:", e)
                     else:
                         self.giticfalsechange(stri,file_url_blbo,m,n)
-                    ''''
-
-  
+                    '''
 	 #@ hfilelinker
         # ![](@img:hfile/2)
         # @img:/hfile/2
