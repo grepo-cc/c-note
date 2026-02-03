@@ -114,8 +114,7 @@ class LinkerLocal(Linker):
                 self.log.debug("net=====================@" + mi, mv) 
             self.log.warning("![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ "")
             alt_str =  m[1] if len(m[1]) > 0  else ""
-            if len(m[1]) == 0 :
-                alt_str = m[1]
+            
             if (m[2] == "("+stri) :
                 self.markdownurlreplace(alt_str,self.Fnet_url + m[3] +  m[4],m)
         return self
@@ -178,9 +177,10 @@ class LinkerLocal(Linker):
                     else:
                         self.giticfalsechange(stri,file_url_blbo,m,n)
                     '''
-	 #@ hfilelinker
-        # ![](@img:hfile/2)
-        # @img:/hfile/2
+#########################################################################
+    #@ hfilelinker
+    # ![](@img:hfile/2)
+    # @img:/hfile/2
     def hfileload(self):
    
         stri = '@hfile-'
@@ -205,3 +205,22 @@ class LinkerLocal(Linker):
             self.log.debug(filepath) 
             self.log.debug(oldxstri) 
             self.markdown = self.markdown.replace(oldxstri,newstri)
+
+# 定义工厂类 
+class LinkerFactory:
+    def create_factory(self, env_type, *args):
+        if env_type == 'local':
+            return LinkerLocal(*args)
+        elif env_type == 'gitic':
+            return LinkerGitic(*args)
+        else:
+            raise ValueError(f'Unknown shape type: {env_type}')
+
+#@ 客户端使用工厂类创建对象
+#^ 调用代码
+# factory = linker.LinkerFactory()
+# linker_c = factory.create_factory('local', markdown)
+# linker_c.localfile()
+# linker_c.giticedit(giticheck)
+# linker_c.hfileload()
+	 
