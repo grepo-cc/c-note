@@ -102,7 +102,8 @@ class LinkerLocal(Linker):
                 self.log.debug(filepath) 
                 # 指定的文件或目录存在
                 if os.path.isfile(self.docs + filepath): 
-                    self.markdownurlreplace(alt_str,filepath,m)
+                    # self.markdownurlreplace(alt_str,filepath,m)
+                    self.markdownurlreplace(filepath,m[3],m)
                 else:
                     self.markdownurlreplace("not found ![](:/)",m[3],m)
         return self   
