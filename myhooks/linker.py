@@ -6,6 +6,50 @@ import re
 import requests
 import env
 
+
+# 定义接口
+class Rezemble:
+    def findfile(self):
+        pass
+
+# 定义具体的类
+class RezembleLocal(Rezemble):
+
+    def findfile(self,linx):
+        types = ["jpg","svg","png","gif","pdf"]
+        images = "assets/images/"
+        docs =  "./docs/"
+        isox = linx
+        for ctype in self.types:
+            filepath = images + linx +"."+ctype
+            
+            # 指定的文件或目录存在
+            if os.path.isfile(docs + filepath): 
+                # self.markdownurlreplace(alt_str,filepath,m)
+                 isox = filepath
+        return   isox   
+
+# 定义具体的类
+class HfileLocal(Rezemble):
+
+    def findfile(self,linx):
+        filepath = "http://cl1157.:30001/hfile/" + linx + ""
+        return   filepath   
+
+
+ # 定义工厂类
+class RezembleFactory:
+    def create_factory(self, Ftype,  **kwargs):
+        if Ftype == 'local':
+            return RezembleLocal( **kwargs)
+        elif Ftype == 'hfile':
+             return HfileLocal( **kwargs)
+        else:
+            raise ValueError(f'Unknown shape type: {env_type}')
+
+
+
+##########################################################
 # 定义接口
 class Linker:
     def localfile(self):
@@ -88,7 +132,7 @@ class LinkerLocal(Linker):
         # pattern = re.compile(regm)
    
         # stri = '@hfile-'
-        self.regx(stri,self.images,"")
+        self.regx(stri,self.images,"","local")
         '''
         #@ 将匹配到的字符串进行分组， 
         #^ a.1 为 [] 内字符串
@@ -175,21 +219,8 @@ class LinkerLocal(Linker):
                         self.markdown = self.markdown.replace("\"@gitic:", "\"" + self.git_static_url )                               
                     else:
                         self.giticfalsechange(stri,file_url_blbo,m,n)
-                    ##@ 判断环境是服务器版还是客户端版
-                    '''
-                    file_url_blbo = 
-                    if(giticheck_state):
-                        try:
-                            response = requests.get(file_url_blbo,timeout=1)
-                            if response.status_code == 200:
-                                self.markdown = self.markdown.replace("\"@gitic:", "\"" + self.git_static_url )                               
-                            else:
-                               self.giticfalsechange(stri,file_url_blbo,m,n)
-                        except requests.exceptions.RequestException as e:
-                            print("~~~~~~~~Error:", e)
-                    else:
-                        self.giticfalsechange(stri,file_url_blbo,m,n)
-                    '''
+ 
+ 
 #########################################################################
     #@ hfilelinker
     # ![](@img:hfile/2)
@@ -197,7 +228,7 @@ class LinkerLocal(Linker):
     def hfileload(self):
    
         stri = '@hfile-'
-        self.regx(stri,self.hfilelinker,"")
+        self.regx(stri,self.hfilelinker,"",'hfile')
         # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         # pattern = re.compile(regm)
         # for m in re.finditer(pattern, self.markdown):   
@@ -222,9 +253,11 @@ class LinkerLocal(Linker):
     #@ regcomm
     # ![](@img:hfile/2)
     # @img:/hfile/2
-    def regx(self,stri,pre_path,ll_path):
+    def regx(self,stri,pre_path,ll_path,Rezemblename):
   
-       
+        factory = RezembleFactory()
+        
+      
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
         for m in re.finditer(pattern, self.markdown):   
@@ -232,10 +265,11 @@ class LinkerLocal(Linker):
             #     self.log.debug("hfileload=====================@" + mi, mv)  
             #@ alt_str href 
             alt_str =  m[1] if len(m[1]) > 0  else ""
-            filepath = pre_path + m[3] + ll_path
+            
             #@ 准备替换的文字
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
-       
+            Rezemble = factory.create_factory(Rezemblename, {})
+            filepath = Rezemble.findfile(m[3])
             newstri = f'<center > <img \
                 style="width:30%!important;height:30%!important;" \
                 controls="" \
