@@ -78,6 +78,7 @@ class LinkerLocal(Linker):
         stri = ':/'        
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
+   
 
         #@ 将匹配到的字符串进行分组， 
         #^ a.1 为 [] 内字符串
@@ -95,6 +96,8 @@ class LinkerLocal(Linker):
                 # 指定的文件或目录存在
                 if os.path.isfile(self.docs + filepath): 
                     self.markdownurlreplace(alt_str,filepath,m)
+                else:
+                    self.markdownurlreplace("not found ![](:/)",m[3],m)
         return self   
 #########################################################################
     #$ 修改指定代号路径 
@@ -188,8 +191,8 @@ class LinkerLocal(Linker):
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
         for m in re.finditer(pattern, self.markdown):   
-            for mi, mv in m.groupdict():
-                self.log.debug("hfileload=====================@" + mi, mv)  
+            # for mi, mv in m.groupdict():
+            #     self.log.debug("hfileload=====================@" + mi, mv)  
             #@ alt_str href 
             alt_str =  m[1] if len(m[1]) > 0  else ""
             filepath = self.hfilelinker + m[3]
