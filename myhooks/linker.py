@@ -47,7 +47,7 @@ class Fnet(Rezemble):
     def findfile(self,linx):
         return   self.github_io_cnote + "asset/net/"
 
-
+'''
  # 定义工厂类
 class RezembleFactory:
     def create_factory(self, Ftype,  **kwargs):
@@ -57,9 +57,18 @@ class RezembleFactory:
              return HfileLocal( **kwargs)
         else:
             raise ValueError(f'Unknown shape type: {env_type}')
+'''
 
+# 定义依赖注入
+class RezembleProcessor:
+    # def __init__(self,rezemble):
+    #     self.rezemble = rezemble
+    def order(self,linx,rezemble):
+        rezemble.findfile(linx)
 
-
+# local_service = RezembleLocal()
+# processor = RezembleProcessor()
+# processor.order(linx,local_service)
 ##########################################################
 # 定义接口
 class Linker:
@@ -168,8 +177,9 @@ class LinkerLocal(Linker):
     def hfileload(self):
    
         stri = '\@hfile-'
-        self.regx(stri,'hfile')
-      
+        # self.regx(stri,'hfile')
+        self.regx(stri,HfileLocal())
+ 
 #########################################################################
     #$ 修改本地文件代码   
     #@ ![](:/6d7af8c2ca774d5399b974b88c2bace1)
@@ -181,8 +191,10 @@ class LinkerLocal(Linker):
         stri = ':/'        
         # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         # pattern = re.compile(regm)
-   
-        self.regx(stri,"local")
+
+      
+        # self.regx(stri,"local")
+        self.regx(stri,RezembleLocal())
        
    
     #@ regcomm
@@ -190,8 +202,9 @@ class LinkerLocal(Linker):
     # @img:/hfile/2
     def regx(self,stri,Rezemblename):
   
-        factory = RezembleFactory()
-        
+        # factory = RezembleFactory()
+        processor = RezembleProcessor()
+
       
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
@@ -208,15 +221,17 @@ class LinkerLocal(Linker):
             
             #@ 准备替换的文字
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
-            Rezemble = factory.create_factory(Rezemblename)
-            filepath = Rezemble.findfile(m[3])
+            # Rezemble = factory.create_factory(Rezemblename)
+            # filepath = Rezemble.findfile(m[3])
+
+            processor.order(m[3],Rezemble)
             # newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
             newstri = f'<center > <img \
                 style="width:30%!important;height:30%!important;" \
                 controls="" \
                 src="{filepath}">\
                 </img>  \
-                <figcaption>111{alt_str} </figcaption> \
+                <figcaption>{alt_str} </figcaption> \
                 </center>'
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
