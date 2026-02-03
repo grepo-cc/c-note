@@ -135,11 +135,7 @@ class LinkerLocal(Linker):
         # stri = '@hfile-'
         self.regx(stri,self.images,"","local")
         '''
-        #@ 将匹配到的字符串进行分组， 
-        #^ a.1 为 [] 内字符串
-        #^ a.2
-        #^ a.3 为 () 文件索引
-        #^ a.4
+      
         for m in re.finditer(pattern, self.markdown):   
             #@ 查找文件，一次匹配
             for ctype in self.types:
@@ -228,7 +224,7 @@ class LinkerLocal(Linker):
     # @img:/hfile/2
     def hfileload(self):
    
-        stri = '@hfile-'
+        stri = '\@hfile-'
         self.regx(stri,self.hfilelinker,"",'hfile')
         # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         # pattern = re.compile(regm)
@@ -261,6 +257,11 @@ class LinkerLocal(Linker):
       
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
+        #@ 将匹配到的字符串进行分组， 
+        #^ a.1 为 [] 内字符串
+        #^ a.2 为 （ 和 正则 key string
+        #^ a.3 为 () 内文件索引
+        #^ a.4 为 ）
         for m in re.finditer(pattern, self.markdown):   
             # for mi, mv in m.groupdict():
             #     self.log.debug("hfileload=====================@" + mi, mv)  
