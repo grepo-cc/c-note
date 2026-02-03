@@ -86,7 +86,7 @@ class LinkerLocal(Linker):
         # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         # pattern = re.compile(regm)
    
-        stri = '@hfile-'
+        # stri = '@hfile-'
         self.regx(stri,self.images,"."+ctype):
         '''
         #@ 将匹配到的字符串进行分组， 
