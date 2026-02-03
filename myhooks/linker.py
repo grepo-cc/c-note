@@ -84,7 +84,7 @@ class LinkerLocal(Linker):
         #^ a.2
         #^ a.3 为 () 文件索引
         #^ a.4
-        for m in re.finditer(pattern, self.markdown):   
+        for m in re.findall(pattern, self.markdown):   
             for mi, mv in m:
                 self.log.debug("LinkerLocal=====================@" + mi, mv) 
             alt_str =  m[1] if len(m[1]) > 0  else ""
@@ -110,7 +110,7 @@ class LinkerLocal(Linker):
         #^ a.2
         #^ a.3 为 () 文件名
         #^ a.4
-        for m in re.finditer(pattern, self.markdown): 
+        for m in re.findall(pattern, self.markdown): 
             for mi, mv in m:
                 self.log.debug("net=====================@" + mi, mv) 
             self.log.warning("![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ "")
@@ -135,7 +135,7 @@ class LinkerLocal(Linker):
         #^ a.2
         #^ a.3
         #^ a.4 
-        for m in re.finditer(pattern, self.markdown): 
+        for m in re.findall(pattern, self.markdown): 
             stri = '--8<-- "@gitic:/'
             if m[4].find(stri)>=0 :
                 for mi, mv in m:
@@ -150,7 +150,7 @@ class LinkerLocal(Linker):
                 #^ a.2
                 #^ a.3 -为 -8<-- "@gitic:/ 后的 url
                 #^ a.4
-                for n in re.finditer(pattern, m[4]):   
+                for n in re.findall(pattern, m[4]):   
                     for mi, mv in enumerate(n):
                         self.log.debug("giticedit=====================@" + mi, mv)  
                   
@@ -187,7 +187,7 @@ class LinkerLocal(Linker):
         stri = '@hfile-'
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
-        for m in re.finditer(pattern, self.markdown):   
+        for m in re.findall(pattern, self.markdown):   
             for mi, mv in m:
                 self.log.debug("hfileload=====================@" + mi, mv)  
             #@ alt_str href 
