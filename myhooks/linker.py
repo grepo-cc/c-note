@@ -9,6 +9,8 @@ import env
 
 # 定义接口
 class Rezemble:
+     def __init__(self):
+        self.github_io_cnote = "https://grepo-cc.github.io/c-note/"
     def findfile(self):
         pass
 
@@ -16,7 +18,7 @@ class Rezemble:
 class RezembleLocal(Rezemble):
 
     def findfile(self,linx):
-        github_io_cnote = "https://grepo-cc.github.io/c-note/"
+        
         types = ["jpg","svg","png","gif","pdf"]
         images = "assets/images/"
         docs =  "./docs/"
@@ -27,7 +29,7 @@ class RezembleLocal(Rezemble):
             # 指定的文件或目录存在
             if os.path.isfile(docs + filepath): 
                 # self.markdownurlreplace(alt_str,filepath,m)
-                 isox = github_io_cnote + filepath
+                 isox = self.github_io_cnote + filepath
         return   isox   
 
 # 定义具体的类
@@ -42,12 +44,10 @@ class HfileLocal(Rezemble):
 #@ ![](@net/数据传输控制方式.svg) 
 #！ 作废
 class Fnet(Rezemble):
-
     def findfile(self,linx):
-        
-        return   "https://grepo-cc.github.io/c-note/" + "asset/net/"
+        return   self.github_io_cnote + "asset/net/"
 
-
+'''
  # 定义工厂类
 class RezembleFactory:
     def create_factory(self, Ftype,  **kwargs):
@@ -57,9 +57,18 @@ class RezembleFactory:
              return HfileLocal( **kwargs)
         else:
             raise ValueError(f'Unknown shape type: {env_type}')
+'''
 
+# 定义依赖注入
+class RezembleProcessor:
+    # def __init__(self,rezemble):
+    #     self.rezemble = rezemble
+    def order(self,linx,rezemble):
+        rezemble.findfile(linx)
 
-
+# local_service = RezembleLocal()
+# processor = RezembleProcessor()
+# processor.order(linx,local_service)
 ##########################################################
 # 定义接口
 class Linker:
@@ -168,28 +177,9 @@ class LinkerLocal(Linker):
     def hfileload(self):
    
         stri = '\@hfile-'
-        self.regx(stri,'hfile')
-        # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
-        # pattern = re.compile(regm)
-        # for m in re.finditer(pattern, self.markdown):   
-        #     # for mi, mv in m.groupdict():
-        #     #     self.log.debug("hfileload=====================@" + mi, mv)  
-        #     #@ alt_str href 
-        #     alt_str =  m[1] if len(m[1]) > 0  else ""
-        #     filepath = self.hfilelinker + m[3]
-        #     #@ 准备替换的文字
-        #     oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
-        #     newstri = f'<center > <img \
-        #         style="width:30%!important;height:30%!important;" \
-        #         controls="" \
-        #         src="{filepath}">\
-        #         </img>  \
-        #         <figcaption>{alt_str} </figcaption> \
-        #         </center>'
-                
-        #     self.log.debug(filepath) 
-        #     self.log.debug(oldxstri) 
-        #     self.markdown = self.markdown.replace(oldxstri,newstri)
+        # self.regx(stri,'hfile')
+        self.regx(stri,HfileLocal())
+ 
 #########################################################################
     #$ 修改本地文件代码   
     #@ ![](:/6d7af8c2ca774d5399b974b88c2bace1)
@@ -201,31 +191,20 @@ class LinkerLocal(Linker):
         stri = ':/'        
         # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         # pattern = re.compile(regm)
-   
-        self.regx(stri,"local")
-        '''
+
       
-        for m in re.finditer(pattern, self.markdown):   
-            #@ 查找文件，一次匹配
-            for ctype in self.types:
-                filepath = self.images + m[3]+"."+ctype
-                self.log.debug(filepath) 
-                # 指定的文件或目录存在
-                if os.path.isfile(self.docs + filepath): 
-                    # self.markdownurlreplace(alt_str,filepath,m)
-                    self.markdownurlreplace(filepath,m[3],m)
-                else:
-                    self.markdownurlreplace("not found ![](:/)",m[3],m)
-        '''
-        # return self     
+        # self.regx(stri,"local")
+        self.regx(stri,RezembleLocal())
+       
    
     #@ regcomm
     # ![](@img:hfile/2)
     # @img:/hfile/2
     def regx(self,stri,Rezemblename):
   
-        factory = RezembleFactory()
-        
+        # factory = RezembleFactory()
+        processor = RezembleProcessor()
+
       
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
@@ -242,8 +221,10 @@ class LinkerLocal(Linker):
             
             #@ 准备替换的文字
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
-            Rezemble = factory.create_factory(Rezemblename)
-            filepath = Rezemble.findfile(m[3])
+            # Rezemble = factory.create_factory(Rezemblename)
+            # filepath = Rezemble.findfile(m[3])
+
+            processor.order(m[3],Rezemble)
             # newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
             newstri = f'<center > <img \
                 style="width:30%!important;height:30%!important;" \
