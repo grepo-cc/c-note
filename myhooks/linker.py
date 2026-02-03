@@ -24,7 +24,8 @@ class LinkerLocal(Linker):
 
         #@ 全局assets images 路径
         #! 使用相对路径 访问域名需注意 https://WW.io.com/ALERT
-        self.images = "c-note/assets/images/"
+        #! github pages 的 路径 https://grepo-cc.github.io/c-note/blog/archive/2024/c-note/assets/images/2af993c759774e1385abcbdd70f4cb8b.
+        self.images = "https://grepo-cc.github.io/c-note/assets/images/"
 
         #@ 全局python 根目录
         self.mysite = "./"
