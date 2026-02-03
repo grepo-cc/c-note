@@ -87,7 +87,7 @@ class LinkerLocal(Linker):
         # pattern = re.compile(regm)
    
         # stri = '@hfile-'
-        self.regx(stri,self.images,"."+ctype)
+        self.regx(stri,self.images,".")
         '''
         #@ 将匹配到的字符串进行分组， 
         #^ a.1 为 [] 内字符串
