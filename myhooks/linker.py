@@ -37,6 +37,16 @@ class HfileLocal(Rezemble):
         filepath = "http://cl1157.:30001/hfile/" + linx + ""
         return   filepath   
 
+# 定义具体的类
+#$ 修改指定代号路径 
+#@ ![](@net/数据传输控制方式.svg) 
+#！ 作废
+class Fnet(Rezemble):
+
+    def findfile(self,linx):
+        
+        return   "https://grepo-cc.github.io/c-note/" + "asset/net/"
+
 
  # 定义工厂类
 class RezembleFactory:
@@ -102,47 +112,9 @@ class LinkerLocal(Linker):
             )
         self.log.warning("URL is accessible" + file_url_blbo + "URL returned status code:" )
         self.log.debug("code  changed======================0" + giticchnage)
-    #@ url 的替换工厂
-    def markdownurlreplace(self,al_str,f_url,m):
-        newstri = f'<center > <img \
-                style="width:30%!important;height:30%!important;" \
-                controls="" \
-                src="{f_url}">\
-                </img>  \
-                <figcaption>{al_str} </figcaption> \
-                </center>'
-        self.markdown = self.markdown.replace(
-                    "![" + al_str +"]" +m[2]+ m[3] +  m[4]+ "",
-                    newstri
-                    )
-                    #@ 对齐方式
-                    #+ "{align=left}"
-        return self
+ 
  
 #########################################################################
-    #$ 修改指定代号路径 
-    #@ ![](@net/数据传输控制方式.svg) 
-    #！ 作废
-    def assemblefile(self):
-        #@ 正则 key string
-        stri = '@net/'
-        regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
-        pattern = re.compile(regm)
-
-        #@ 将匹配到的字符串进行分组， 
-        #^ a.1 为 [] 内字符串 @net/
-        #^ a.2
-        #^ a.3 为 () 文件名
-        #^ a.4
-        for m in re.finditer(pattern, self.markdown): 
-            for mi, mv in m.groupdict():
-                self.log.debug("net=====================@" + mi, mv) 
-            self.log.warning("![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ "")
-            alt_str =  m[1] if len(m[1]) > 0  else ""
-            
-            if (m[2] == "("+stri) :
-                self.markdownurlreplace(alt_str,self.Fnet_url + m[3] +  m[4],m)
-        return self
 #########################################################################
     #@ 修改 markdown 代码块跳转 gitic   
     ##@ ```--8<-- "@gitic:/```
@@ -266,7 +238,7 @@ class LinkerLocal(Linker):
             # for mi, mv in m.groupdict():
             #     self.log.debug("hfileload=====================@" + mi, mv)  
             #@ alt_str href 
-            alt_str =  m[0] if len(m[1]) > 0  else ""
+            alt_str =  m[1] if len(m[1]) > 0  else ""
             
             #@ 准备替换的文字
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
