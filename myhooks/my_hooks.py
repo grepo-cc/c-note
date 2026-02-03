@@ -15,9 +15,9 @@ log = logging.getLogger(f"mkdocs.plugins.{__name__}")
 
 # 客户端使用工厂类创建对象
 factory = env.EnvFactory()
-mkenv_c = factory.create_factory('local', 5)
+mkenv_c = factory.create_factory('local',{})
 mkenv_dic = mkenv_c.initennv()
-giticheck = mkenv_c.giticheck_state
+Rcheck_state = mkenv_c.Rcheck_state
  
 
 
@@ -32,7 +32,7 @@ def on_startup(command,dirty ):
 	
 def on_config(config, **kwargs):
 
-	log.warning("env ======================" +str(giticheck))
+	log.warning("env ======================" +str(Rcheck_state))
 	log.warning("env ======================" +str(mkenv_dic))
 	
 	# exit()
