@@ -88,7 +88,7 @@ class LinkerLocal(Linker):
         # pattern = re.compile(regm)
    
         # stri = '@hfile-'
-        self.regx(stri,self.images,".")
+        self.regx(stri,self.images,"")
         '''
         #@ 将匹配到的字符串进行分组， 
         #^ a.1 为 [] 内字符串
@@ -96,9 +96,6 @@ class LinkerLocal(Linker):
         #^ a.3 为 () 文件索引
         #^ a.4
         for m in re.finditer(pattern, self.markdown):   
-            # for mi, mv in m.groupdict():
-            #     self.log.debug("LinkerLocal=====================@" + mi, mv) 
-            alt_str =  m[1] if len(m[1]) > 0  else ""
             #@ 查找文件，一次匹配
             for ctype in self.types:
                 filepath = self.images + m[3]+"."+ctype
@@ -226,7 +223,7 @@ class LinkerLocal(Linker):
     # ![](@img:hfile/2)
     # @img:/hfile/2
     def regx(self,stri,pre_path,ll_path):
-   
+  
        
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
