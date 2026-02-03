@@ -38,6 +38,8 @@ class Env:
 #@ 定义具体的类1
 class EnvLocal(Env):
     def __init__(self, etype,rreq):
+        #@ 调用父类的 __init__ 方法 
+        #! 不能加self
         super().__init__( etype,rreq)  # 调用父类的 __init__ 方法
         print("~~~~~~~~ child class init method:",  self.Rcheck_state)
     def initennv(self):
@@ -61,7 +63,9 @@ class EnvGithub(Env):
         self.requestcheck(cnote_url)
         print("p~~~~~~~~ Rcheck_state:",  self.Rcheck_state)
         '''
-        super().__init__(etype,rreq)  # 调用父类的 __init__ 方法
+        #@ 调用父类的 __init__ 方法 
+        #! 不能加self
+        super().__init__(etype,rreq)  
         print("~~~~~~~~ child class init method:",  self.Rcheck_state)
     def initennv(self):
         tinydict = {'a': "github env", 'b': 2, 'b': '3'}

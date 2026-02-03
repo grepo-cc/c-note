@@ -58,7 +58,7 @@ def on_page_markdown(markdown,page,config, **kwargs):
 	factory = linker.LinkerFactory()
 	linker_c = factory.create_factory('local', markdown)
 	linker_c.localfile()
-	linker_c.giticedit(giticheck)
+	linker_c.giticedit()
 	linker_c.hfileload()
 	# print(linker_c.markdown)
 	markdown = linker_c.markdown
