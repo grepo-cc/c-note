@@ -16,6 +16,7 @@ class Rezemble:
 class RezembleLocal(Rezemble):
 
     def findfile(self,linx):
+        github_io_cnote = "https://grepo-cc.github.io/c-note/"
         types = ["jpg","svg","png","gif","pdf"]
         images = "assets/images/"
         docs =  "./docs/"
@@ -26,7 +27,7 @@ class RezembleLocal(Rezemble):
             # 指定的文件或目录存在
             if os.path.isfile(docs + filepath): 
                 # self.markdownurlreplace(alt_str,filepath,m)
-                 isox = filepath
+                 isox = github_io_cnote + filepath
         return   isox   
 
 # 定义具体的类
