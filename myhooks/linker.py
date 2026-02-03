@@ -60,9 +60,16 @@ class LinkerLocal(Linker):
         self.log.debug("code  changed======================0" + giticchnage)
     #@ url 的替换工厂
     def markdownurlreplace(self,al_str,f_url,m):
+        newstri = f'<center > <img \
+                style="width:30%!important;height:30%!important;" \
+                controls="" \
+                src="{f_url}">\
+                </img>  \
+                <figcaption>{al_str} </figcaption> \
+                </center>'
         self.markdown = self.markdown.replace(
                     "![" + al_str +"]" +m[2]+ m[3] +  m[4]+ "",
-                    "![" + al_str +"](" + f_url  +  m[4]
+                    newstri
                     )
                     #@ 对齐方式
                     #+ "{align=left}"
