@@ -9,7 +9,7 @@ import env
 
 # 定义接口
 class Rezemble:
-     def __init__(self):
+    def __init__(self):
         self.github_io_cnote = "https://grepo-cc.github.io/c-note/"
     def findfile(self):
         pass
