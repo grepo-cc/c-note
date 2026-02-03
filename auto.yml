@@ -88,7 +88,7 @@ plugins:
 repo_name: gitlab/mkdocs-material
 repo_url: http://cl1157:30020/
 site_name: "\u4E91\u7B14\u8BB0 my_mkdocs"
-site_url: http://127.0.0.1
+site_url: https://grepo-cc.github.io/c-note/
 theme:
   features:
   - search.suggest
