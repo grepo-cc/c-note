@@ -6,7 +6,7 @@ import requests
 
 # 定义接口
 class Env:
-    def __init__(self, etype, rreq):
+    def __init__(self, **kwargs):
         self.etype = etype
         self.Rcheck_state = False
 
@@ -37,8 +37,8 @@ class Env:
 #####################################################################
 #@ 定义具体的类1
 class EnvLocal(Env):
-    def __init__(self, etype, rreq):
-        super().__init__(etype, rreq)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         print("~~~~~~~~ child class init method:",  self.Rcheck_state)
     def initennv(self):
         tinydict = {'a': "local env", 'b': 2, 'b': '3'}
@@ -52,7 +52,7 @@ class EnvGitic(Env):
 
 #@ 定义具体的类3
 class EnvGithub(Env):
-    def __init__(self, etype, rreq):
+    def __init__(self, **kwargs):
         #@ 调整，作废
         '''
         self.etype = etype
@@ -61,7 +61,7 @@ class EnvGithub(Env):
         self.requestcheck(cnote_url)
         print("p~~~~~~~~ Rcheck_state:",  self.Rcheck_state)
         '''
-        super().__init__(etype, rreq)
+        super().__init__(**kwargs)
         print("~~~~~~~~ child class init method:",  self.Rcheck_state)
     def initennv(self):
         tinydict = {'a': "github env", 'b': 2, 'b': '3'}

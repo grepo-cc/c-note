@@ -157,7 +157,7 @@ class LinkerLocal(Linker):
                     #@ 客户端使用工厂类创建对象,判断链接是否可以正常访问
                     # Cnote =  {check_url = "https://grepo-cc.github.io/c-note/"}
                     factory = env.EnvFactory()
-                    mkenv_c = factory.create_factory('gitic',0,{ check_url : self.git_static_blob + n[3] })
+                    mkenv_c = factory.create_factory('gitic',0,{ rreq={check_url : self.git_static_blob + n[3]} })
                     Rcheck_state = mkenv_c.Rcheck_state
                     if(Rcheck_state):
                         self.markdown = self.markdown.replace("\"@gitic:", "\"" + self.git_static_url )                               
