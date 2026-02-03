@@ -86,9 +86,7 @@ class LinkerLocal(Linker):
         #^ 
         self.git_static_url = "http://cl1157.:30001/mygitic?d="
         self.git_static_blob = "http://cl1157.:30001/mygitib?d="
-
-        #@  hfile 的url 
-        self.hfilelinker =  "http://cl1157.:30001/hfile/"
+ 
     
         self.markdown = markdown
 
@@ -124,6 +122,7 @@ class LinkerLocal(Linker):
 #########################################################################
     #$ 修改指定代号路径 
     #@ ![](@net/数据传输控制方式.svg) 
+    #！ 作废
     def assemblefile(self):
         #@ 正则 key string
         stri = '@net/'
@@ -273,13 +272,14 @@ class LinkerLocal(Linker):
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
             Rezemble = factory.create_factory(Rezemblename)
             filepath = Rezemble.findfile(m[3])
-            newstri = f'<center > <img \
-                style="width:30%!important;height:30%!important;" \
-                controls="" \
-                src="{filepath}">\
-                </img>  \
-                <figcaption>111{alt_str} </figcaption> \
-                </center>'
+            newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
+            # newstri = f'<center > <img \
+            #     style="width:30%!important;height:30%!important;" \
+            #     controls="" \
+            #     src="{filepath}">\
+            #     </img>  \
+            #     <figcaption>111{alt_str} </figcaption> \
+            #     </center>'
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
 # 定义工厂类 
