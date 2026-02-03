@@ -23,7 +23,8 @@ class LinkerLocal(Linker):
         self.types = ["jpg","svg","png","gif","pdf"]
 
         #@ 全局assets images 路径
-        self.images = "/assets/images/"
+        #! 使用相对路径 访问域名需注意 https://WW.io.com/ALERT
+        self.images = "c-note/assets/images/"
 
         #@ 全局python 根目录
         self.mysite = "./"
@@ -122,7 +123,7 @@ class LinkerLocal(Linker):
     #@ 修改 markdown 代码块跳转 gitic   
     ##@ ```--8<-- "@gitic:/```
     ##@ ![](:/root/mysite/docs/assets/images/6d7af8c2ca774d5399b974b88c2bace1)
-    def giticedit(self,giticheck_state):
+    def giticedit(self):
         # --@-- [start:]	
         
         #@ 正则 key string
