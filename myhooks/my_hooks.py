@@ -15,7 +15,7 @@ log = logging.getLogger(f"mkdocs.plugins.{__name__}")
 
 # 客户端使用工厂类创建对象
 factory = env.EnvFactory()
-mkenv_c = factory.create_factory('local',{})
+mkenv_c = factory.create_factory('local',0,{})
 mkenv_dic = mkenv_c.initennv()
 Rcheck_state = mkenv_c.Rcheck_state
  
