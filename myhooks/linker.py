@@ -231,7 +231,7 @@ class LinkerLocal(Linker):
                 controls="" \
                 src="{filepath}">\
                 </img>  \
-                <figcaption>111{alt_str} </figcaption> \
+                <figcaption>{alt_str} </figcaption> \
                 </center>'
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
