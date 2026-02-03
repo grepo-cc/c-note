@@ -272,14 +272,14 @@ class LinkerLocal(Linker):
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
             Rezemble = factory.create_factory(Rezemblename)
             filepath = Rezemble.findfile(m[3])
-            newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
-            # newstri = f'<center > <img \
-            #     style="width:30%!important;height:30%!important;" \
-            #     controls="" \
-            #     src="{filepath}">\
-            #     </img>  \
-            #     <figcaption>111{alt_str} </figcaption> \
-            #     </center>'
+            # newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
+            newstri = f'<center > <img \
+                style="width:30%!important;height:30%!important;" \
+                controls="" \
+                src="{filepath}">\
+                </img>  \
+                <figcaption>111{alt_str} </figcaption> \
+                </center>'
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
 # 定义工厂类 
