@@ -85,7 +85,7 @@ class LinkerLocal(Linker):
         #^ a.3 为 () 文件索引
         #^ a.4
         for m in re.finditer(pattern, self.markdown):   
-            for mi, mv in enumerate(m):
+            for mi, mv in m:
                 self.log.debug("LinkerLocal=====================@" + mi, mv) 
             alt_str =  m[1] if len(m[1]) > 0  else ""
             #@ 查找文件，一次匹配
@@ -111,7 +111,7 @@ class LinkerLocal(Linker):
         #^ a.3 为 () 文件名
         #^ a.4
         for m in re.finditer(pattern, self.markdown): 
-            for mi, mv in enumerate(m):
+            for mi, mv in m:
                 self.log.debug("net=====================@" + mi, mv) 
             self.log.warning("![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ "")
             alt_str =  m[1] if len(m[1]) > 0  else ""
@@ -138,7 +138,7 @@ class LinkerLocal(Linker):
         for m in re.finditer(pattern, self.markdown): 
             stri = '--8<-- "@gitic:/'
             if m[4].find(stri)>=0 :
-                for mi, mv in enumerate(m):
+                for mi, mv in m:
                     self.log.debug("```code```=====================@" + mi, mv) 
                 #@ 正则 key string
                 regm = r'([\s\S]*?)(--8<--\ \"\@gitic\:)([\s\S]*?)(\")'
@@ -188,7 +188,7 @@ class LinkerLocal(Linker):
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
         for m in re.finditer(pattern, self.markdown):   
-            for mi, mv in enumerate(m):
+            for mi, mv in m:
                 self.log.debug("hfileload=====================@" + mi, mv)  
             #@ alt_str href 
             alt_str =  m[1] if len(m[1]) > 0  else ""
