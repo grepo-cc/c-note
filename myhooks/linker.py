@@ -20,7 +20,7 @@ class RezembleLocal(Rezemble):
         images = "assets/images/"
         docs =  "./docs/"
         isox = linx
-        for ctype in self.types:
+        for ctype in types:
             filepath = images + linx +"."+ctype
             
             # 指定的文件或目录存在
