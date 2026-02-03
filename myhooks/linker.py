@@ -87,7 +87,7 @@ class LinkerLocal(Linker):
         # pattern = re.compile(regm)
    
         # stri = '@hfile-'
-        self.regx(stri,self.images,"."+ctype):
+        self.regx(stri,self.images,"."+ctype)
         '''
         #@ 将匹配到的字符串进行分组， 
         #^ a.1 为 [] 内字符串
@@ -199,7 +199,7 @@ class LinkerLocal(Linker):
     def hfileload(self):
    
         stri = '@hfile-'
-        self.regx(stri,self.hfilelinker,""):
+        self.regx(stri,self.hfilelinker,"")
         # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         # pattern = re.compile(regm)
         # for m in re.finditer(pattern, self.markdown):   
