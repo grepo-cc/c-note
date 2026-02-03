@@ -120,35 +120,7 @@ class LinkerLocal(Linker):
                     #@ 对齐方式
                     #+ "{align=left}"
         return self
-#########################################################################
-    #$ 修改本地文件代码   
-    #@ ![](:/6d7af8c2ca774d5399b974b88c2bace1)
-    #@ ![](:/root/mysite/docs/assets/images/6d7af8c2ca774d5399b974b88c2bace1)
-    def localfile(self):
-        # markdown = self.markdown 
-
-        #@ 正则key string
-        stri = ':/'        
-        # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
-        # pattern = re.compile(regm)
-   
-        # stri = '@hfile-'
-        self.regx(stri,self.images,"","local")
-        '''
-      
-        for m in re.finditer(pattern, self.markdown):   
-            #@ 查找文件，一次匹配
-            for ctype in self.types:
-                filepath = self.images + m[3]+"."+ctype
-                self.log.debug(filepath) 
-                # 指定的文件或目录存在
-                if os.path.isfile(self.docs + filepath): 
-                    # self.markdownurlreplace(alt_str,filepath,m)
-                    self.markdownurlreplace(filepath,m[3],m)
-                else:
-                    self.markdownurlreplace("not found ![](:/)",m[3],m)
-        '''
-        # return self   
+ 
 #########################################################################
     #$ 修改指定代号路径 
     #@ ![](@net/数据传输控制方式.svg) 
@@ -225,7 +197,7 @@ class LinkerLocal(Linker):
     def hfileload(self):
    
         stri = '\@hfile-'
-        self.regx(stri,self.hfilelinker,"",'hfile')
+        self.regx(stri,'hfile')
         # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         # pattern = re.compile(regm)
         # for m in re.finditer(pattern, self.markdown):   
@@ -247,10 +219,39 @@ class LinkerLocal(Linker):
         #     self.log.debug(filepath) 
         #     self.log.debug(oldxstri) 
         #     self.markdown = self.markdown.replace(oldxstri,newstri)
+#########################################################################
+    #$ 修改本地文件代码   
+    #@ ![](:/6d7af8c2ca774d5399b974b88c2bace1)
+    #@ ![](:/root/mysite/docs/assets/images/6d7af8c2ca774d5399b974b88c2bace1)
+    def localfile(self):
+        # markdown = self.markdown 
+
+        #@ 正则key string
+        stri = ':/'        
+        # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
+        # pattern = re.compile(regm)
+   
+        self.regx(stri,"local")
+        '''
+      
+        for m in re.finditer(pattern, self.markdown):   
+            #@ 查找文件，一次匹配
+            for ctype in self.types:
+                filepath = self.images + m[3]+"."+ctype
+                self.log.debug(filepath) 
+                # 指定的文件或目录存在
+                if os.path.isfile(self.docs + filepath): 
+                    # self.markdownurlreplace(alt_str,filepath,m)
+                    self.markdownurlreplace(filepath,m[3],m)
+                else:
+                    self.markdownurlreplace("not found ![](:/)",m[3],m)
+        '''
+        # return self     
+   
     #@ regcomm
     # ![](@img:hfile/2)
     # @img:/hfile/2
-    def regx(self,stri,pre_path,ll_path,Rezemblename):
+    def regx(self,stri,Rezemblename):
   
         factory = RezembleFactory()
         
@@ -266,7 +267,7 @@ class LinkerLocal(Linker):
             # for mi, mv in m.groupdict():
             #     self.log.debug("hfileload=====================@" + mi, mv)  
             #@ alt_str href 
-            alt_str =  m[1] if len(m[1]) > 0  else ""
+            alt_str =  m[0] if len(m[1]) > 0  else ""
             
             #@ 准备替换的文字
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
