@@ -83,18 +83,20 @@ class LinkerLocal(Linker):
 
         #@ 正则key string
         stri = ':/'        
-        regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
-        pattern = re.compile(regm)
+        # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
+        # pattern = re.compile(regm)
    
-
+        stri = '@hfile-'
+        self.regx(stri,self.images,"."+ctype):
+        '''
         #@ 将匹配到的字符串进行分组， 
         #^ a.1 为 [] 内字符串
         #^ a.2
         #^ a.3 为 () 文件索引
         #^ a.4
         for m in re.finditer(pattern, self.markdown):   
-            for mi, mv in m.groupdict():
-                self.log.debug("LinkerLocal=====================@" + mi, mv) 
+            # for mi, mv in m.groupdict():
+            #     self.log.debug("LinkerLocal=====================@" + mi, mv) 
             alt_str =  m[1] if len(m[1]) > 0  else ""
             #@ 查找文件，一次匹配
             for ctype in self.types:
@@ -106,7 +108,8 @@ class LinkerLocal(Linker):
                     self.markdownurlreplace(filepath,m[3],m)
                 else:
                     self.markdownurlreplace("not found ![](:/)",m[3],m)
-        return self   
+        '''
+        # return self   
 #########################################################################
     #$ 修改指定代号路径 
     #@ ![](@net/数据传输控制方式.svg) 
@@ -196,6 +199,34 @@ class LinkerLocal(Linker):
     def hfileload(self):
    
         stri = '@hfile-'
+        self.regx(stri,self.hfilelinker,""):
+        # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
+        # pattern = re.compile(regm)
+        # for m in re.finditer(pattern, self.markdown):   
+        #     # for mi, mv in m.groupdict():
+        #     #     self.log.debug("hfileload=====================@" + mi, mv)  
+        #     #@ alt_str href 
+        #     alt_str =  m[1] if len(m[1]) > 0  else ""
+        #     filepath = self.hfilelinker + m[3]
+        #     #@ 准备替换的文字
+        #     oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
+        #     newstri = f'<center > <img \
+        #         style="width:30%!important;height:30%!important;" \
+        #         controls="" \
+        #         src="{filepath}">\
+        #         </img>  \
+        #         <figcaption>{alt_str} </figcaption> \
+        #         </center>'
+                
+        #     self.log.debug(filepath) 
+        #     self.log.debug(oldxstri) 
+        #     self.markdown = self.markdown.replace(oldxstri,newstri)
+    #@ regcomm
+    # ![](@img:hfile/2)
+    # @img:/hfile/2
+    def regx(self,stri,pre_path,ll_path):
+   
+       
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
         for m in re.finditer(pattern, self.markdown):   
@@ -203,19 +234,17 @@ class LinkerLocal(Linker):
             #     self.log.debug("hfileload=====================@" + mi, mv)  
             #@ alt_str href 
             alt_str =  m[1] if len(m[1]) > 0  else ""
-            filepath = self.hfilelinker + m[3]
+            filepath = pre_path + m[3] + ll_path
             #@ 准备替换的文字
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
+       
             newstri = f'<center > <img \
                 style="width:30%!important;height:30%!important;" \
                 controls="" \
                 src="{filepath}">\
                 </img>  \
-                <figcaption>{alt_str} </figcaption> \
+                <figcaption>111{alt_str} </figcaption> \
                 </center>'
-                
-            self.log.debug(filepath) 
-            self.log.debug(oldxstri) 
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
 # 定义工厂类 
