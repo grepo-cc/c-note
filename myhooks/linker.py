@@ -92,7 +92,7 @@ class LinkerLocal(Linker):
                 self.log.debug(filepath) 
                 # 指定的文件或目录存在
                 if os.path.isfile(self.docs + filepath): 
-                    self.markdownurlreplace(self,alt_str,filepath,m)
+                    self.markdownurlreplace(alt_str,filepath,m)
         return self   
 #########################################################################
     #$ 修改指定代号路径 
@@ -118,7 +118,7 @@ class LinkerLocal(Linker):
             if len(m[1]) == 0 :
                 alt_str = m[1]
             if (m[2] == "("+stri) :
-                self.markdownurlreplace(self,alt_str,self.Fnet_url + m[3] +  m[4],m)
+                self.markdownurlreplace(alt_str,self.Fnet_url + m[3] +  m[4],m)
         return self
 #########################################################################
     #@ 修改 markdown 代码块跳转 gitic   
