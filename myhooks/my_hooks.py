@@ -61,12 +61,14 @@ def on_page_markdown(markdown,page,config, **kwargs):
 	# linker_c.localfile()
 	# linker_c.giticedit()
 	# linker_c.hfileload()
-	# markdown = linker_c.markdown
+	
 
 	#依赖注入	
 	processor = linker.LinkerProcessor()
-	processor.order(linker.LinkerLocal(markdown))
-	markdown = processor.markdown
+	linker_c = processor.order(linker.LinkerLocal(markdown))
+	
+	
+	markdown = linker_c.markdown
 	
 		
 
