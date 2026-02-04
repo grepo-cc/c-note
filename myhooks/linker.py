@@ -65,8 +65,8 @@ class RezembleProcessor:
     # def __init__(self,rezemble):
     #     self.rezemble = rezemble
     def order(self,linx,rezemble):
-        rezemble.findfile(linx)
-
+        return rezemble.findfile(linx)
+#x 依赖注入使用方法
 # local_service = RezembleLocal()
 # processor = RezembleProcessor()
 # processor.order(linx,local_service)
@@ -186,15 +186,13 @@ class LinkerLocal(Linker):
     #@ ![](:/6d7af8c2ca774d5399b974b88c2bace1)
     #@ ![](:/root/mysite/docs/assets/images/6d7af8c2ca774d5399b974b88c2bace1)
     def localfile(self):
-        # markdown = self.markdown 
-
+  
         #@ 正则key string
         stri = ':/'        
         # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         # pattern = re.compile(regm)
-
       
-        # self.regx(stri,"local")
+        # self.regx(stri,"local") #工厂方法
         self.regx(stri,RezembleLocal())
        
    
@@ -221,7 +219,7 @@ class LinkerLocal(Linker):
             
             #@ 准备替换的文字
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
-            
+
             # Rezemble = factory.create_factory(Rezemblename)
             # filepath = Rezemble.findfile(m[3])
 
