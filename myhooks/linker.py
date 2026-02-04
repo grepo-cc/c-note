@@ -11,7 +11,9 @@ import env
 class Rezemble:
     def __init__(self):
         self.github_io_cnote = "https://grepo-cc.github.io/c-note/"
-    
+
+        #! 部署前根据环境修改该熟悉
+        self.loaalasset = self.github_io_cnote
     def findfile(self):
         pass
 
@@ -19,18 +21,24 @@ class Rezemble:
 class RezembleLocal(Rezemble):
 
     def findfile(self,linx):
-        
+
+         #@ 定义 localfile 方法中所需要遍历的 后缀名
+        #^ 待完善、补充
         types = ["jpg","svg","png","gif","pdf"]
-        images = "assets/images/"
+
+        #@ 全局assets images 路径
+        #! 使用相对路径 访问域名需注意 https://WW.io.com/ALERT 
+        #! github pages 的 路径 https://grepo-cc.github.io/c-note/blog/archive/2024/c-note/assets/images/2af993c759774e1385abcbdd70f4cb8b.
+        images = "assets/images/"        
         docs =  "./docs/"
+
         isox = linx
         for ctype in types:
             filepath = images + linx +"."+ctype
-            
             # 指定的文件或目录存在
             if os.path.isfile(docs + filepath): 
                 # self.markdownurlreplace(alt_str,filepath,m)
-                 isox = self.github_io_cnote + filepath
+                 isox = self.loaalasset + filepath
         return   isox   
 
 # 定义具体的类
@@ -46,7 +54,8 @@ class HfileLocal(Rezemble):
 #！ 作废
 class Fnet(Rezemble):
     def findfile(self,linx):
-        return   self.github_io_cnote + "asset/net/"
+        # "http://cl1157.:15780/myftppicgo/mksvg.php" + "?d=网络工程&h="
+        return   self.loaalasset + "asset/net/"
 
 '''
  # 定义工厂类
@@ -83,37 +92,15 @@ class Linker:
 class LinkerLocal(Linker):
     def __init__(self, markdown):
         self.log = logging.getLogger(f"mkdocs.plugins.{__name__}")
+        self.markdown = markdown
 
-        #@ 定义 localfile 方法中所需要遍历的 后缀名
-        #^ 待完善、补充
-        self.types = ["jpg","svg","png","gif","pdf"]
-
-        #@ 全局assets images 路径
-        #! 使用相对路径 访问域名需注意 https://WW.io.com/ALERT
-        #! github pages 的 路径 https://grepo-cc.github.io/c-note/blog/archive/2024/c-note/assets/images/2af993c759774e1385abcbdd70f4cb8b.
-        self.images = "https://grepo-cc.github.io/c-note/assets/images/"
-
-        #@ 全局python 根目录
-        self.mysite = "./"
-
-        #@ docs 根目录
-        self.docs = self.mysite + "docs/"
-
-        #@ ![@net/]() url
-        #! 已作废
-        self.Fnet_url = "http://cl1157.:15780/myftppicgo/mksvg.php" + "?d=网络工程&h="
-        
         #@  gitic 的url
         #^ 
         self.git_static_url = "http://cl1157.:30001/mygitic?d="
         self.git_static_blob = "http://cl1157.:30001/mygitib?d="
- 
-    
-        self.markdown = markdown
 
 #########################################################################
     ##@ 判断环境是服务器版还是客户端版
-    # --@-- [start:]
     def giticfalsechange(self,stri,file_url_blbo,m,n):
           
         giticchnage =  m[0].replace(stri, "#" + stri )
@@ -196,10 +183,6 @@ class LinkerLocal(Linker):
         # self.regx(stri,"local") #工厂方法
         self.regx(stri,RezembleLocal())
        
-   
-    #@ regcomm
-    # ![](@img:hfile/2)
-    # @img:/hfile/2
     def regx(self,stri,Rezemblename):
   
         # factory = RezembleFactory() #工厂方法
@@ -245,11 +228,24 @@ class LinkerFactory:
         else:
             raise ValueError(f'Unknown shape type: {env_type}')
 
+# 定义依赖注入
+#^ 调用代码
+# processor = LinkerProcessor()
+# processor.order({},LinkerLocal())
+class LinkerProcessor:
+    def order(self,linker):
+        linker.localfile()
+        linker.giticedit()
+        linker.hfileload()
+        # return linker
+
+
+
 #@ 客户端使用工厂类创建对象
 #^ 调用代码
 # factory = linker.LinkerFactory()
 # linker_c = factory.create_factory('local', markdown)
 # linker_c.localfile()
 # linker_c.giticedit(giticheck)
-# linker_c.hfileload()
-	 
+# linker_c.hfileload(
+

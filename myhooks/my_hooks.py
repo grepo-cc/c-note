@@ -53,15 +53,21 @@ def on_config(config, **kwargs):
 
 def on_page_markdown(markdown,page,config, **kwargs):
 	print(config)
+
 	# exit()
 	#客户端使用工厂类创建对象
-	factory = linker.LinkerFactory()
-	linker_c = factory.create_factory('local', markdown)
-	linker_c.localfile()
-	linker_c.giticedit()
-	linker_c.hfileload()
-	# print(linker_c.markdown)
-	markdown = linker_c.markdown
+	# factory = linker.LinkerFactory()
+	# linker_c = factory.create_factory('local', markdown)
+	# linker_c.localfile()
+	# linker_c.giticedit()
+	# linker_c.hfileload()
+	# markdown = linker_c.markdown
+
+	#依赖注入	
+	processor = LinkerProcessor()
+	processor.order({},LinkerLocal())
+	markdown = processor.markdown
+	
 		
 
 # --@-- [start:]
