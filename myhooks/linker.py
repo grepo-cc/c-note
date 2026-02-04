@@ -11,6 +11,7 @@ import env
 class Rezemble:
     def __init__(self):
         self.github_io_cnote = "https://grepo-cc.github.io/c-note/"
+    
     def findfile(self):
         pass
 
