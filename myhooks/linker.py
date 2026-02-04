@@ -229,7 +229,7 @@ class LinkerProcessor:
         linker.localfile()
         linker.giticedit()
         linker.hfileload()
-        # return linker
+        return linker
 
 
 '''
