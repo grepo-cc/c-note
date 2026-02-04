@@ -65,7 +65,7 @@ def on_page_markdown(markdown,page,config, **kwargs):
 
 	#依赖注入	
 	processor = linker.LinkerProcessor()
-	processor.order(linker.LinkerLocal())
+	processor.order(linker.LinkerLocal(markdown))
 	markdown = processor.markdown
 	
 		
