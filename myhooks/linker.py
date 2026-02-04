@@ -70,7 +70,8 @@ class RezembleProcessor:
 # local_service = RezembleLocal()
 # processor = RezembleProcessor()
 # processor.order(linx,local_service)
-##########################################################
+
+### linker#######################################################
 # 定义接口
 class Linker:
     def localfile(self):
@@ -223,7 +224,7 @@ class LinkerLocal(Linker):
             # Rezemble = factory.create_factory(Rezemblename)
             # filepath = Rezemble.findfile(m[3])
 
-            filepath = processor.order(m[3],Rezemble)
+            filepath = processor.order(m[3],Rezemblename)
             # newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
             newstri = f'<center > <img \
                 style="width:30%!important;height:30%!important;" \
