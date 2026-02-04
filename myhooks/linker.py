@@ -218,15 +218,7 @@ class LinkerLocal(Linker):
                 </center>'
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
-# 定义工厂类 
-class LinkerFactory:
-    def create_factory(self, env_type, *args):
-        if env_type == 'local':
-            return LinkerLocal(*args)
-        elif env_type == 'gitic':
-            return LinkerGitic(*args)
-        else:
-            raise ValueError(f'Unknown shape type: {env_type}')
+
 
 # 定义依赖注入
 #^ 调用代码
@@ -240,7 +232,8 @@ class LinkerProcessor:
         # return linker
 
 
-
+'''
+# 定义工厂类 
 #@ 客户端使用工厂类创建对象
 #^ 调用代码
 # factory = linker.LinkerFactory()
@@ -248,4 +241,14 @@ class LinkerProcessor:
 # linker_c.localfile()
 # linker_c.giticedit(giticheck)
 # linker_c.hfileload(
+class LinkerFactory:
+    def create_factory(self, env_type, *args):
+        if env_type == 'local':
+            return LinkerLocal(*args)
+        elif env_type == 'gitic':
+            return LinkerGitic(*args)
+        else:
+            raise ValueError(f'Unknown shape type: {env_type}')
+
+'''
 
