@@ -203,9 +203,8 @@ class LinkerLocal(Linker):
     # @img:/hfile/2
     def regx(self,stri,Rezemblename):
   
-        # factory = RezembleFactory()
-        processor = RezembleProcessor()
-
+        # factory = RezembleFactory() #工厂方法
+        processor = RezembleProcessor() #依赖注入
       
         regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
@@ -222,10 +221,11 @@ class LinkerLocal(Linker):
             
             #@ 准备替换的文字
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
+            
             # Rezemble = factory.create_factory(Rezemblename)
             # filepath = Rezemble.findfile(m[3])
 
-            processor.order(m[3],Rezemble)
+            filepath = processor.order(m[3],Rezemble)
             # newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
             newstri = f'<center > <img \
                 style="width:30%!important;height:30%!important;" \
