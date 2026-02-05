@@ -219,8 +219,8 @@ class LinkerLocal(Linker):
             <figcaption>{alt_str} </figcaption> \
             </center>'
          
-            self.log.debug("REPALCE=====================@" + oldxstri) 
-            self.log.debug("REPALCE=====================@" + newstri) 
+            self.log.warning("REPALCE=====================@" + oldxstri) 
+            self.log.warning("REPALCE=====================@" + newstri) 
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
 
