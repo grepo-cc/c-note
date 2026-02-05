@@ -1,3 +1,4 @@
 import conf
 
-conf.ConfProcessor().order(conf.ConfAuto())
+processor = conf.ConfProcessor()
+processor.order(conf.ConfAuto())
