@@ -17,7 +17,7 @@ processor = env.EnvProcessor()
 envx1 = processor.order(env.EnvLocal(etype=0,rreq={}))
 
 processor2 = env.EnvProcessor()
-envx2 = processor2.order(env.EnvGithub(etype=0,rreq={check_url : "https://github.com/"}))
+envx2 = processor2.order(env.EnvGithub(etype=0,rreq={ 'check_url' : "https://github.com/"}))
 
 log.warning("env local ======================" +str(envx1.Rcheck_state))
 log.warning("env local ======================" +str(envx1.mkenv_dic))
