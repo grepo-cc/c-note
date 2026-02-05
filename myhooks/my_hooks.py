@@ -38,7 +38,7 @@ def on_config(config, **kwargs):
 	conf_c.autoconf("config")
 	print(config) """
 	 
-	confx =  conf.ConfProcessor().order(conf.ConfAuto())
+	confx =  conf.ConfProcessor().order(conf.ConfAuto(config))
 	config = confx.config
 	print( "combine config =========================" + config) 
 	# config['theme']['name']='material'
