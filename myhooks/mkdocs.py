@@ -1,4 +1,4 @@
-from  conf import *
+import conf
 
 
 try:
