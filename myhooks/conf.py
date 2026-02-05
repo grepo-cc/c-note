@@ -28,7 +28,7 @@ class ConfAuto(ConfInit):
         self.doc_root = "./"
         # pass
 
-    def autoconf(self,config):
+    def autoconf(self):
         log = self.log
         # mkdocs = self.mkdocs
         # config = self.config
@@ -40,11 +40,7 @@ class ConfAuto(ConfInit):
         # load = mkdocs.config.load_config("auto.yml")
         # new_config = mkdocs.commands.build.build(load)
         # mkdocs.livereload.LiveReloadServer()
-        # print( globals())
-
-      
-
-        # 使用示例
+ 
         ##@ 合并yaml配置文件
         files_to_merge = [
             'base.yml'
@@ -65,9 +61,6 @@ class ConfAuto(ConfInit):
             ,'theme_font.yml'
              ]
         refresh = self.conf_path + 'refresh.yml'
-     
-     #@ GITHUB action 
-     #^ PermissionError: [Errno 13] Permission denied: '/root/mysite/myhooks/conf_yamls/refresh.yml
  
         # 打开文件并读取内容
         ## 使用保存两次来触发修改
@@ -106,7 +99,7 @@ class ConfAuto(ConfInit):
 
      
         # time.sleep(2 )
-        return config
+        # return config
  
     def load_yaml_file(self,file_path):
         """加载YAML文件并返回内容"""
@@ -183,12 +176,20 @@ class ConfAuto(ConfInit):
         # return config
 
 # 定义工厂类
-class ConfFactory:
+""" class ConfFactory:
     def create_factory(self, env_type, *args):
         if env_type == 'auto':
             return ConfAuto(*args)
         elif env_type == '1':
             return ConfAuto(*args)
         else:
-            raise ValueError(f'Unknown shape type: {env_type}')
+            raise ValueError(f'Unknown shape type: {env_type}') """
         
+# 定义依赖注入
+#^ 调用代码
+# processor = conf.ConfProcessor()
+# confx =  conf.ConfProcessor().order(conf.ConfAuto())
+class ConfProcessor:
+    def order(self,confx):
+        confx.autoconf()
+        return confx

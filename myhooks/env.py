@@ -89,8 +89,8 @@ class EnvGithub(Env):
 
 # 定义依赖注入
 #^ 调用代码
-# processor = EnvProcessor()
-# processor.order({},EnvGithub(etype=0,rreq={}))
+# processor2 = env.EnvProcessor()
+# envx2 = processor2.order(env.EnvGithub(etype=0,rreq={ 'check_url' : "https://github.com/"}))
 class EnvProcessor:
     def order(self,envx):
         # envx.initennv()

@@ -15,13 +15,10 @@ Rcheck_state = mkenv_c.Rcheck_state """
 
 processor = env.EnvProcessor()
 envx1 = processor.order(env.EnvLocal(etype=0,rreq={}))
-
 processor2 = env.EnvProcessor()
 envx2 = processor2.order(env.EnvGithub(etype=0,rreq={ 'check_url' : "https://github.com/"}))
-
 log.warning("env local ======================" +str(envx1.Rcheck_state))
 log.warning("env local ======================" +str(envx1.initennv()))
-
 log.warning("env github ======================" +str(envx2.Rcheck_state))
 log.warning("env github ======================" +str(envx2.initennv()))
 	
@@ -36,11 +33,14 @@ def on_startup(command,dirty ):
 def on_config(config, **kwargs):
 	# os.abort()
 	# 客户端使用工厂类创建对象
-	factory = conf.ConfFactory()
+	""" factory = conf.ConfFactory()
 	conf_c = factory.create_factory('auto',"")
 	conf_c.autoconf("config")
-	print(config)
+	print(config) """
 	 
+	confx =  conf.ConfProcessor().order(conf.ConfAuto())
+	config = confx.config
+	print( "combine config =========================" + config) 
 	# config['theme']['name']='material'
 	# config['site_url']='material'
 
