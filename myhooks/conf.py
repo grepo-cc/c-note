@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from collections import defaultdict
-import logging,mkdocs.plugins
+# import logging,mkdocs.plugins
 import re
 import yaml
 
@@ -14,7 +14,7 @@ class ConfInit:
 class ConfAuto(ConfInit):
     def __init__(self,config):
         ### log加载
-        self.log = logging.getLogger(f"mkdocs.plugins.{__name__}")
+        # self.log = logging.getLogger(f"mkdocs.plugins.{__name__}")
         # self.mkdocs = mkdocs
         self.config = config
 		
