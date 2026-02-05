@@ -1,3 +1,8 @@
-import conf
+from  conf import *
 
-ConfProcessor().order(conf.ConfAuto(config))
+
+try:
+    PP = conf.ConfProcessor()
+except AttributeError:
+    print("The object has no  attribute.")
+PP = order(conf.ConfAuto(""))
