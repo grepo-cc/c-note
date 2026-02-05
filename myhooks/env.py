@@ -12,7 +12,7 @@ class Env:
 
         # 检查键是否存在
         if 'check_url' in rreq:
-            self.requestcheck(rreq.check_url)
+            self.requestcheck(rreq['check_url'])
             print("p~~~~~~~~ Rcheck_state:",  self.Rcheck_state)
             print("键 'check_url' 存在于字典中")
         else:
