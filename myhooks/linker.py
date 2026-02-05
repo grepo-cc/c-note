@@ -208,19 +208,19 @@ class LinkerLocal(Linker):
             # filepath = Rezemble.findfile(m[3])
 
             filepath = processor.order(m[3],Rezemblename)
-            newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
+            # newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
             
 
-             """  newstri = f'<center > <img \
-                style="width:30%!important;height:30%!important;" \
-                controls="" \
-                src="{filepath}">\
-                </img>  \
-                <figcaption>{alt_str} </figcaption> \
-                </center>' """
-            print("===================================== REPALCE")
-            print(oldxstri)
-            print(newstri)
+            newstri = f'<center > <img \
+            style="width:30%!important;height:30%!important;" \
+            controls="" \
+            src="{filepath}">\
+            </img>  \
+            <figcaption>{alt_str} </figcaption> \
+            </center>'
+         
+            self.log.debug("REPALCE=====================@" + oldxstri) 
+            self.log.debug("REPALCE=====================@" + newstri) 
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
 
