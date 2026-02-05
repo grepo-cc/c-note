@@ -41,5 +41,5 @@ jobs:
       - run: pip install openpyxl 
       #@ 加载mkdocs配置文件 
       #! github action 时，需将 refresh 设置为 auto
-      - run: python ./myhooks/mkdocs.py
+      # - run: python ./myhooks/mkdocs.py
       - run: mkdocs gh-deploy --force
