@@ -93,5 +93,5 @@ class EnvGithub(Env):
 # processor.order({},EnvGithub(etype=0,rreq={}))
 class EnvProcessor:
     def order(self,envx):
-        envx.initennv()
+        # envx.initennv()
         return envx

@@ -20,10 +20,10 @@ processor2 = env.EnvProcessor()
 envx2 = processor2.order(env.EnvGithub(etype=0,rreq={ 'check_url' : "https://github.com/"}))
 
 log.warning("env local ======================" +str(envx1.Rcheck_state))
-log.warning("env local ======================" +str(envx1.mkenv_dic))
+log.warning("env local ======================" +str(envx1.initennv()))
 
 log.warning("env github ======================" +str(envx2.Rcheck_state))
-log.warning("env github ======================" +str(envx2.mkenv_dic))
+log.warning("env github ======================" +str(envx2.initennv()))
 	
 
 def on_startup(command,dirty ):
