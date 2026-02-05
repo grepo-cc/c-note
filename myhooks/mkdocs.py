@@ -2,7 +2,7 @@ import conf
 
 
 try:
-    PP = conf.ConfProcessor()
+    conf.ConfProcessor().order(conf.ConfAuto(""))
 except AttributeError:
     print("The object has no  attribute.")
-PP = order(conf.ConfAuto(""))
+ 
