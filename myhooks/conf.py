@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from collections import defaultdict
-# import logging,mkdocs.plugins
 import re
 import yaml
 
@@ -13,11 +12,8 @@ class ConfInit:
 # 定义具体的类
 class ConfAuto(ConfInit):
     def __init__(self,config):
-        ### log加载
-        # self.log = logging.getLogger(f"mkdocs.plugins.{__name__}")
-        # self.mkdocs = mkdocs
-        self.config = config
-		
+
+        self.config = config		
 		#@ 根目录修改
         '''
 		self.conf_path = "/root/mysite/myhooks/conf_yamls/"
@@ -29,11 +25,11 @@ class ConfAuto(ConfInit):
         # pass
 
     def autoconf(self):
-        log = self.log
+        
         # mkdocs = self.mkdocs
         # config = self.config
 
-        log.warning("autoconf>>>>>======================" )
+        print("autoconf>>>>>======================" )
         #修改监控
         # config['config_file_path'] = "/root/mysite/auto.yml"
         #加载配置文件
@@ -87,7 +83,7 @@ class ConfAuto(ConfInit):
         # config = mkdocs.config.base.load_config(config_file= output_file)
       
         # config =  mkdocs.config.load_config(output_file)
-          # new_config = mkdocs.commands.serve.builder(load)
+        # new_config = mkdocs.commands.serve.builder(load)
 
         #加载配置文件
         # config = mkdocs.config.load_config(output_file)
@@ -96,7 +92,6 @@ class ConfAuto(ConfInit):
 
         # config = mkdocs.config.base.Config.load_file(config,open(output_file, 'r', encoding="utf-8"))
         # config = mkdocs.config.base.Config(output_file)
-
      
         # time.sleep(2 )
         # return config
@@ -137,8 +132,6 @@ class ConfAuto(ConfInit):
         for file in files:
             file_data = self.load_yaml_file(self.conf_path + file)
            
-
-
             print(file_data)
             print("合并 文件名：：：：：：")
             print(file)
