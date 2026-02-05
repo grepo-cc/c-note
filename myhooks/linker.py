@@ -165,7 +165,7 @@ class LinkerLocal(Linker):
     # @img:/hfile/2
     def hfileload(self):
    
-        stri = '\@hfile-'
+        stri = '(\@hfile-'
         # self.regx(stri,'hfile')
         self.regx(stri,HfileLocal())
  
@@ -176,7 +176,7 @@ class LinkerLocal(Linker):
     def localfile(self):
   
         #@ 正则key string
-        stri = ':/'        
+        stri = '(:/'        
         # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
         # pattern = re.compile(regm)
       
@@ -188,7 +188,7 @@ class LinkerLocal(Linker):
         # factory = RezembleFactory() #工厂方法
         processor = RezembleProcessor() #依赖注入
       
-        regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
+        regm = r'!\[([\s\S]*?)\](' + stri + ')([\s\S]*?)(\))'
         pattern = re.compile(regm)
         #@ 将匹配到的字符串进行分组， 
         #^ a.1 为 [] 内字符串
