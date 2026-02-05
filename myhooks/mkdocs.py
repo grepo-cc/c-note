@@ -1,3 +1,3 @@
-import conf.py
+import conf
 
 conf.ConfProcessor().order(conf.ConfAuto())
