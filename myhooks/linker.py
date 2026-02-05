@@ -209,6 +209,8 @@ class LinkerLocal(Linker):
 
             filepath = processor.order(m[3],Rezemblename)
             # newstri = "![" + m[1] +"]" + "(" + filepath + ")" + ""
+            
+
             newstri = f'<center > <img \
                 style="width:30%!important;height:30%!important;" \
                 controls="" \
@@ -216,6 +218,9 @@ class LinkerLocal(Linker):
                 </img>  \
                 <figcaption>{alt_str} </figcaption> \
                 </center>'
+            print("===================================== REPALCE")
+            print(oldxstri)
+            print(newstri)
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
 
