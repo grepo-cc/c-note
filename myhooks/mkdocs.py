@@ -1,3 +1,3 @@
-from ./myhooks/ import conf.py
+import conf.py
 
 mconf.ConfProcessor().order(conf.ConfAuto())
