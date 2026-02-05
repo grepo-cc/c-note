@@ -20,7 +20,7 @@ class Env:
        
     def initennv(self):
         pass
-#####################################################################
+
     #@ 判断环境是服务器版还是客户端版
     def requestcheck(self,check_url):
         try:
@@ -73,8 +73,9 @@ class EnvGithub(Env):
 
  ##################################################################
 
-# 定义工厂类
-class EnvFactory:
+#@ 定义工厂类
+#^ 客户端使用工厂类创建对象
+""" class EnvFactory:
     def create_factory(self, env_type,  **kwargs):
         if env_type == 'local':
             return EnvLocal( **kwargs)
@@ -83,11 +84,14 @@ class EnvFactory:
         elif env_type == 'github':
             return EnvGithub( **kwargs)
         else:
-            raise ValueError(f'Unknown shape type: {env_type}')
+            raise ValueError(f'Unknown shape type: {env_type}') """
 
-# 客户端使用工厂类创建对象
-# factory = EnvFactory()
-# circle = factory.create_factory('local', 5)
-# print(circle.area()) # 输出圆的面积
 
- 
+# 定义依赖注入
+#^ 调用代码
+# processor = EnvProcessor()
+# processor.order({},EnvGithub(etype=0,rreq={}))
+class EnvProcessor:
+    def order(self,envx):
+        envx.initennv()
+        return envx

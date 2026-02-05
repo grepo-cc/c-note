@@ -8,12 +8,22 @@ import env,conf,linker
 ### log加载
 log = logging.getLogger(f"mkdocs.plugins.{__name__}")
 # 客户端使用工厂类创建对象
-factory = env.EnvFactory()
+""" factory = env.EnvFactory()
 mkenv_c = factory.create_factory('local',etype=0,rreq={})
 mkenv_dic = mkenv_c.initennv()
-Rcheck_state = mkenv_c.Rcheck_state
-log.warning("env ======================" +str(Rcheck_state))
-log.warning("env ======================" +str(mkenv_dic))
+Rcheck_state = mkenv_c.Rcheck_state """
+
+processor = env.EnvProcessor()
+envx1 = processor.order({},env.EnvLocal(etype=0,rreq={}))
+
+processor2 = env.EnvProcessor()
+envx2 = processor2.order({},env.EnvGithub(etype=0,rreq={check_url : "https://github.com/"}))
+
+log.warning("env local ======================" +str(envx1.Rcheck_state))
+log.warning("env local ======================" +str(envx1.mkenv_dic))
+
+log.warning("env github ======================" +str(envx2.Rcheck_state))
+log.warning("env github ======================" +str(envx2.mkenv_dic))
 	
 
 def on_startup(command,dirty ):
@@ -40,21 +50,15 @@ def on_config(config, **kwargs):
 # 	log.warning("on_pre_build======================" )
 
 def on_page_markdown(markdown,page,config, **kwargs):
-	print(config)
+ 
 
 	# exit()
-	#客户端使用工厂类创建对象
-	# factory = linker.LinkerFactory()
-	# linker_c = factory.create_factory('local', markdown)
-	# linker_c.localfile()
-	# linker_c.giticedit()
-	# linker_c.hfileload()
-
+ 
 	#依赖注入	
 	processor = linker.LinkerProcessor()
 	linker_c = processor.order(linker.LinkerLocal(markdown))
-
 	markdown = linker_c.markdown
+
 	#@ debug 文件名
 	filed = page.file.dest_uri
 	if filed.find('dockerfile')>=0:

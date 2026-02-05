@@ -73,19 +73,18 @@ class ConfAuto(ConfInit):
         ## 使用保存两次来触发修改
         with open(refresh, 'r', encoding='utf-8') as file:
             content = file.read()
-        print(content)
+        print("refresh file is ++++++++++++++++++" + content)
+
         if( content ==  'mkdocs.yml'):
             outfile = "auto.yml"
         else:
             outfile =  'mkdocs.yml'
 
-        # 打开文件进行覆盖写
-      
+        # 打开文件进行覆盖写      
         with open(refresh ,'w') as f:
-            f.write(outfile) # 写入新的内容
-  
+            f.write(outfile) # 写入新的内容  
         # exit()
-        # outfile =  'mkdocs.yml'
+ 
         output_file = self.doc_root + outfile
         self.merge_yaml_files(files_to_merge, output_file)
 
