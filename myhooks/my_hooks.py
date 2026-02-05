@@ -62,7 +62,7 @@ def on_page_markdown(markdown,page,config, **kwargs):
 
 	#@ debug 文件名
 	filed = page.file.dest_uri
-	if filed.find('dockerfile')>=0:
+	if filed.find('计算机组成')>=0:
 		log.warning(filed)
 		log.warning(markdown)
 	
