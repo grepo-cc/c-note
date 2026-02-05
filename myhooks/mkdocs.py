@@ -1,4 +1,3 @@
 import conf
 
-
-conf.ConfProcessor().order(conf.ConfAuto())
+conf.ConfProcessor().order(conf.ConfAuto(config))

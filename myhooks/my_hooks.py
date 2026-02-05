@@ -40,7 +40,8 @@ def on_config(config, **kwargs):
 	 
 	confx =  conf.ConfProcessor().order(conf.ConfAuto(config))
 	config = confx.config
-	print( "combine config =========================" + config) 
+	print( "combine config =========================" ) 
+	print(  config) 
 	# config['theme']['name']='material'
 	# config['site_url']='material'
 
