@@ -55,7 +55,7 @@ class HfileLocal(Rezemble):
 class Fnet(Rezemble):
     def findfile(self,linx):
         # "http://cl1157.:15780/myftppicgo/mksvg.php" + "?d=网络工程&h="
-        return   self.loaalasset + "asset/net/"
+        return   self.loaalasset + "asset/net/" + linx
 
 '''
  # 定义工厂类
@@ -168,24 +168,18 @@ class LinkerLocal(Linker):
         stri = '\(\@hfile-'
         # self.regx(stri,'hfile')
         self.regx(stri,HfileLocal())
+    #@ net
+    # ![](@net/2)     
     def dirnet(self):
    
-        stri = '\(\@net\/'
-        # self.regx(stri,'hfile')
+        stri = '\(\@net\/'       
         self.regx(stri,Fnet())
  
-#########################################################################
     #$ 修改本地文件代码   
     #@ ![](:/6d7af8c2ca774d5399b974b88c2bace1)
     #@ ![](:/root/mysite/docs/assets/images/6d7af8c2ca774d5399b974b88c2bace1)
     def localfile(self):
-  
-        #@ 正则key string
         stri = '\(:/'        
-        # regm = r'!\[([\s\S]*?)\](\(' + stri + ')([\s\S]*?)(\))'
-        # pattern = re.compile(regm)
-      
-        # self.regx(stri,"local") #工厂方法
         self.regx(stri,RezembleLocal())
        
     def regx(self,stri,Rezemblename):
@@ -224,8 +218,8 @@ class LinkerLocal(Linker):
             <figcaption>{alt_str} </figcaption> \
             </center>'
          
-            self.log.warning("REPALCE=====================@" + oldxstri) 
-            self.log.warning("REPALCE=====================@" + newstri) 
+            self.log.warning("REPALCE= old ====================@" + oldxstri) 
+            self.log.warning("REPALCE= new ====================@" + newstri) 
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
 
