@@ -55,7 +55,7 @@ class HfileLocal(Rezemble):
 class Fnet(Rezemble):
     def findfile(self,linx):
         # "http://cl1157.:15780/myftppicgo/mksvg.php" + "?d=网络工程&h="
-        return   self.loaalasset + "asset/net/" + linx
+        return   "http://cl1157.:30001/hfile/" + "asset/net/" + linx
 
 '''
  # 定义工厂类
@@ -82,14 +82,14 @@ class RezembleProcessor:
 
 ### linker#######################################################
 # 定义接口
-class Linker:
+class LinkerImg:
     def localfile(self):
         pass
     def giticedit(self):
         pass
 
 # 定义具体的类
-class LinkerLocal(Linker):
+class LinkerLocal(LinkerImg):
     def __init__(self, markdown):
         self.log = logging.getLogger(f"mkdocs.plugins.{__name__}")
         self.markdown = markdown
