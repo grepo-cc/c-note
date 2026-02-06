@@ -212,7 +212,7 @@ class LinkerLocal(Linker):
 
             newstri = f'<center > <img \
             style="width:30%!important;height:30%!important;" \
-            alt="{alt_str}">\
+            alt="{alt_str}"\
             controls="" \
             src="{filepath}">\
             </img>  \
