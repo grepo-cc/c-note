@@ -1,0 +1,43 @@
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-left-width: 4px;
+}
+
+
+/* # --8<-- [start:] */
+ 
+ 
+article{
+  margin-bottom: 32px !important;
+  /* background-color: #d5d8da; */
+  border-color: #d5d8da;
+  border-style:dotted;
+  border-width:1x;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 5px;
+}
+article.md-post::after {
+  color: #ddb122;
+  font-size: 15px;
+  /* padding: 1em 0; */
+  /* position: relative; */
+
+  content: "分割线";
+  position: absolute;
+ 
+  z-index: -1;
+ 
+  padding: 1px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  line-height: 1px;
+  border: dashed #36b0e9 2px; 
+ 
+  width: 50%;
+  /* for IE浏览器 */
+  white-space: nowrap;
+   
+  
+}

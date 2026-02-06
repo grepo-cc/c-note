@@ -1,0 +1,18 @@
+
+@keyframes heart {
+    0%,  100% {
+    
+      transform: scale(1) rotate(0deg);
+      background: yellow ;
+    }
+    50% {
+      
+      transform: scale(1.15) rotate(0deg);
+      background: #EE0F0F ;
+      
+    }
+  }
+  .md-annotation__index:after{
+      animation: heart 1000ms infinite;
+  }
+  
