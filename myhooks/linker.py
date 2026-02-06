@@ -168,6 +168,11 @@ class LinkerLocal(Linker):
         stri = '\(\@hfile-'
         # self.regx(stri,'hfile')
         self.regx(stri,HfileLocal())
+    def dirnet(self):
+   
+        stri = '\(\@net\/'
+        # self.regx(stri,'hfile')
+        self.regx(stri,Fnet())
  
 #########################################################################
     #$ 修改本地文件代码   
@@ -234,6 +239,7 @@ class LinkerProcessor:
         linker.localfile()
         linker.giticedit()
         linker.hfileload()
+        linker.dirnet()
         return linker
 
 
