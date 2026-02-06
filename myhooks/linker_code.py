@@ -13,7 +13,7 @@ class LinkerCode:
         self.log = logging.getLogger(f"mkdocs.plugins.{__name__}")
         self.markdown = markdown
 # 定义具体的类
-class LinkerLocal(LinkerCode):
+class CodeGitic(LinkerCode):
     def __init__(self, markdown):
  
         super().__init__(markdown)  

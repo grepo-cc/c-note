@@ -59,6 +59,10 @@ def on_page_markdown(markdown,page,config, **kwargs):
 	linker_c = linker_img.LinkerImgPro().order(linker_img.LinkerLocal(markdown))
 	markdown = linker_c.markdown
 
+	#依赖注入	
+	linker_c = linker_code.LinkerCodePro().order(linker_code.CodeGitic(markdown))
+	markdown = linker_c.markdown
+
 	#@ debug 文件名
 	filed = page.file.dest_uri
 	if filed.find('计算机组成')>=0:
