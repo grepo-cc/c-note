@@ -16,7 +16,7 @@ Rcheck_state = mkenv_c.Rcheck_state """
 processor = env.EnvProcessor()
 envx1 = processor.order(env.EnvLocal(etype=0,rreq={}))
 processor2 = env.EnvProcessor()
-envx2 = processor2.order(env.EnvGithub(etype=0,rreq={ 'check_url' : "https://github.com/"}))
+envx2 = env.EnvProcessor().order(env.EnvGithub(etype=0,rreq={ 'check_url' : "https://github.com/"}))
 log.warning("env local ======================" +str(envx1.Rcheck_state))
 log.warning("env local ======================" +str(envx1.initennv()))
 log.warning("env github ======================" +str(envx2.Rcheck_state))
@@ -56,8 +56,7 @@ def on_page_markdown(markdown,page,config, **kwargs):
 	# exit()
  
 	#依赖注入	
-	processor = linker_img.LinkerProcessor()
-	linker_c = processor.order(linker_img.LinkerLocal(markdown))
+	linker_c = linker_img.LinkerImgProcessor().order(linker_img.LinkerLocal(markdown))
 	markdown = linker_c.markdown
 
 	#@ debug 文件名
