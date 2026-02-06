@@ -198,7 +198,7 @@ class LinkerLocal(Linker):
             # for mi, mv in m.groupdict():
             #     self.log.debug("hfileload=====================@" + mi, mv)  
             #@ alt_str href 
-            alt_str =  m[1] if len(m[1]) > 0  else ""
+            alt_str =  m[1] if len(m[1]) > 0  else m[3]
             
             #@ 准备替换的文字
             oldxstri = "![" + m[1] +"]" +m[2]+ m[3] +  m[4]+ ""
