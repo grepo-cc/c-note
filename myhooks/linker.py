@@ -186,8 +186,8 @@ class LinkerLocal(Linker):
   
         # factory = RezembleFactory() #工厂方法
         processor = RezembleProcessor() #依赖注入
-      
-        regm = r'!\[([\s\S]*?)\](' + stri + ')([\s\S]*?)(\))'
+        #()内不允许存在空格 取消\s 匹配
+        regm = r'!\[([\s\S]*?)\](' + stri + ')([\S]*?)(\))'
         pattern = re.compile(regm)
         #@ 将匹配到的字符串进行分组， 
         #^ a.1 为 [] 内字符串
