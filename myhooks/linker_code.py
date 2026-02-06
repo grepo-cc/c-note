@@ -81,9 +81,9 @@ class CodeGitic(LinkerCode):
 ################################################
 # 定义依赖注入
 #^ 调用代码
-# processor = LinkerPro()
-# processor.order({},LinkerLocal())
-class LinkerPro:
+# processor = LinkerCodePro()
+# processor.order({},)
+class LinkerCodePro:
     def order(self,linker):
         linker.giticedit()
         return linker
