@@ -81,10 +81,11 @@ class LinkerLocal(LinkerCode):
 ################################################
 # 定义依赖注入
 #^ 调用代码
-# processor = LinkerProcessor()
+# processor = LinkerPro()
 # processor.order({},LinkerLocal())
-class LinkerCodeProcessor:
+class LinkerPro:
     def order(self,linker):
         linker.giticedit()
         return linker
+
 

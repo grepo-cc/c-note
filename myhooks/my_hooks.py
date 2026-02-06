@@ -2,7 +2,7 @@ import logging,mkdocs.plugins
 import re
 import os.path
 import time
-import env,conf,linker_img
+import env,conf,linker_img,linker_code
 # import ruamel.yaml
 
 ### log加载
@@ -56,7 +56,7 @@ def on_page_markdown(markdown,page,config, **kwargs):
 	# exit()
  
 	#依赖注入	
-	linker_c = linker_img.LinkerImgProcessor().order(linker_img.LinkerLocal(markdown))
+	linker_c = prlinker_img.LinkerImgPro()ocessor.order(linker_img.LinkerLocal(markdown))
 	markdown = linker_c.markdown
 
 	#@ debug 文件名

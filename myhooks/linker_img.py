@@ -148,9 +148,9 @@ class LinkerLocal(LinkerImg):
 
 # 定义依赖注入
 #^ 调用代码
-# processor = LinkerProcessor()
+# processor = LinkerImgPro()
 # processor.order({},LinkerLocal())
-class LinkerImgProcessor:
+class LinkerImgPro:
     def order(self,linker):
         linker.localfile()
     
@@ -179,3 +179,4 @@ class LinkerImgProcessor:
 
 	# markdown = markdown.replace("(@gitic:", "("+git_static_blob )	
 # --@-- [end:]	
+
