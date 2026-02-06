@@ -219,6 +219,10 @@ class LinkerLocal(Linker):
             </center>'
          
             self.log.warning("REPALCE= old ====================@" + oldxstri) 
+            self.log.warning("REPALCE= ########## ====================" + m[1]) 
+            self.log.warning("REPALCE= ########## ====================" + m[2]) 
+            self.log.warning("REPALCE= ########## ====================" + m[3]) 
+            self.log.warning("REPALCE= ########## ====================" + m[4]) 
             self.log.warning("REPALCE= new ====================@" + newstri) 
             self.markdown = self.markdown.replace(oldxstri,newstri)
 
